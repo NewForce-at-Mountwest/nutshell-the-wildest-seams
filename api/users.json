@@ -9,7 +9,42 @@
         {
           "id": 2,
           "userName": "Mandy",
-          "password": ""  
+          "password": "mandy123",
+          "actualName": "Amanda"  
+        },
+        {
+            "id": 3,
+            "userName": "Ashon",
+            "password": "ashon123",
+            "actualName": "Ashon"
+        },
+        {
+            "id": 4,
+            "userName": "Austin",
+            "password": "hats123",
+            "actualName": "Austin"
         }
-    ]
+    ],
+"messages": [
+    {
+        "id": 1,
+        "userId": 1,
+        "message": "So this one time, I was packing my husband's lunch..."
+    },
+    {
+        "id": 2,
+        "userId": 2,
+        "message": "yeah, go ahead"
+    },
+    {
+        "id": 3,
+        "userId": 4,
+        "message": "Does he like bananas?"
+    },
+    {
+        "id": 4,
+        "userId": 3,
+        "message": "his coworkers probably do."
+    }
+]
 }

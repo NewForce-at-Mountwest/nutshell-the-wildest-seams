@@ -1,0 +1,10 @@
+.container{
+    border: solid 2px black;
+    padding: 1em;
+    margin: 1em;
+}
+
+.taskChatContainer{
+    display: flex;
+    height: 50vh;
+}

@@ -1,51 +1,60 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
     <!-- bar at the top of the screen displaying user and dashboard title -->
-<div class="container dashboardContainer" id="dashboard">
-    <h1>space filler</h1>
-
-</div>
+    <div class="containerWS dashboardContainer" id="dashboard">
+      <h1>space filler</h1>
+    </div>
 
     <!-- Main container for events and news display, because they are stacked on top of each other on the screen -->
 
     <div class="eventNewsContainer" id="eventNewsContainer">
-        <!-- individual events container -->
-    <div class="container eventsContainer" id="eventsContainer">
+      <!-- individual events container -->
+      <div class="containerWS eventsContainer" id="eventsContainer">
         <h1>Events</h1>
-
-    </div>
-        <!-- individual news container -->
-    <div class="container newsContainer" id="newsContainer">
+      </div>
+      <!-- individual news container -->
+      <div class="containerWS newsContainer" id="newsContainer">
         <h1>News</h1>
-
+      </div>
     </div>
-</div>
 
     <!-- task and chat container, because they will be side by side -->
-<div class="taskChatContainer" id="taskChatContainer">
-
-        <!-- individual task container -->
-    <div class="taskContainer container" id="taskContainer">
-        <h1>Tasks</h1>
-
-    </div>
-        <!-- individual chat container -->
-    <div class="chatContainer container" id="chatContainer">
+    <div class="taskChatContainer" id="taskChatContainer">
+      <!-- individual task container -->
+      <div class="taskContainer containerWS" id="taskContainer">
+        <nav class="nav-extended">
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">Tasks</a>
+            <a
+              class="btn-floating btn-large halfway-fab waves-effect waves-light teal" id="new-task-btn"
+            >
+              <i class="material-icons">add</i>
+            </a>
+          </div>
+        </nav>
+        <div id="tasks-printing-container">
+          <!-- Task printing goes here -->
+        </div>
+      </div>
+      <!-- individual chat container -->
+      <div class="chatContainer containerWS" id="chatContainer">
         <h1>Messages</h1>
-
+      </div>
     </div>
 
-</div>
- 
-    
-
+    <!-- JS Scripts -->
     <script type="module" src="scripts/main.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>

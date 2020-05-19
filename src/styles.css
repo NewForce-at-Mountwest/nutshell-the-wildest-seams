@@ -1,4 +1,4 @@
-.container {
+.containerWS {
     border: solid 2px black;
     padding: 1em;
     margin: 1em;
@@ -27,4 +27,21 @@
 
 .chatContainer{
     width: 40%;
+}
+
+#taskContainer {
+    padding: 0;
+}
+
+#tasks-printing-container {
+    overflow: scroll;
+    height: 13em;
+}
+
+.taskCard {
+    width: 90rem;
+}
+
+.row {
+    width: 80rem;
 }

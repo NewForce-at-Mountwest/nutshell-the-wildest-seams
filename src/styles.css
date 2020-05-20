@@ -1,3 +1,5 @@
+
+/* basic layout of containers for whole page */
 .container {
     border: solid 2px black;
     padding: 1em;
@@ -16,15 +18,39 @@
     height: 20em;
 }
 
-.taskChatContainer{
-    display: flex;
+/* .taskChatContainer{
+    /* display: flex; */
+    /* height: 20em; */
+/* } */ 
+
+.taskContainer{
+    /* width: 60%; */
     height: 20em;
 }
 
-.taskContainer{
-    width: 60%;
+.chatContainer{
+    /* width: 40%; */
+    background-color: darkblue;
+    border: inset 1px black;
+    height: 20em;
 }
 
-.chatContainer{
-    width: 40%;
+/* basic layout of chat screen, button, and input */
+#messageScreen {
+    border: inset 1px black;
+    background-color: lightgrey;
+    height: 90%;
+}
+
+#chatInputContainer {
+    border: inset 1px black;
+    height: 15%;
+    /* padding: 5px; */
+    background-color: rgb(93, 93, 134);
+}
+
+#message {
+    /* border: inset 1px black; */
+    width: 80%;
+    
 }

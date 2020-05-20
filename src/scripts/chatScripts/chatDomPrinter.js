@@ -10,4 +10,4 @@ fetch(`http://localhost:3000/messages?_expand=user`)
         const htmlString = `<p>${messageObject.user.userName}: ${messageObject.message}</p> `;
         document.querySelector("#messageScreen").innerHTML += htmlString;
     });
-})
+});

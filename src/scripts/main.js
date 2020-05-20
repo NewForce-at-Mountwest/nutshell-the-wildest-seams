@@ -29,8 +29,8 @@ const newCardHTML = () => {
                 </form>
             </div>
             <div class="card-action">
-                <a class="waves-effect waves-teal btn-flat" id="save-btn">Save</a>
-                <a class="waves-effect waves-teal btn-flat" id="cancel-btn">Cancel</a>
+                <a class="waves-effect waves-teal btn-flat" id="task-save-btn">Save</a>
+                <a class="waves-effect waves-teal btn-flat" id="task-cancel-btn">Cancel</a>
             </div>
         </div>
     </div>
@@ -41,7 +41,10 @@ const taskCard = (singleEntry) => {
     return `
     <ul class="collapsible">
         <li>
-            <div class="collapsible-header">${singleEntry.task}</div>
+            <div class="collapsible-header">
+            ${singleEntry.task}
+            <i class="tiny material-icons" id="task-delete-btn-${singleEntry.id}">delete</i>
+            </div>
         </li>
     </ul>`
 }
@@ -50,6 +53,8 @@ const taskCard = (singleEntry) => {
 document
 .querySelector ("body")
 .addEventListener ("click", function() {
+    // Primary key
+    const primaryKey = event.target.id.split("-")[3]
     // If statements for buttons
     if(event.target.id === "new-task-btn"){
     // Clear the printing area
@@ -67,7 +72,7 @@ document
         })
     })
     // Cancel button functionality
-    } else if(event.target.id === "cancel-btn"){
+    } else if(event.target.id === "task-cancel-btn"){
         // Clear the printing area
         newTaskAreaSelector.innerHTML = ""
         // Fetch existing tasks
@@ -82,7 +87,7 @@ document
         })
     })
 
-    } else if (event.target.id === "save-btn"){
+    } else if (event.target.id === "task-save-btn"){
         // Form values
         // Task name value
         const newTaskNameValue = document.querySelector("#new-task-text-form").value
@@ -114,6 +119,23 @@ document
                 newTaskAreaSelector.innerHTML += taskCard(task)
                 })
             })
+        })
+    } else if (event.target.id.includes("task-delete-btn")){
+        // Delete fetch call
+        fetch(`http://localhost:3000/tasks/${primaryKey}`, {
+            method: "DELETE",
+        }) .then(function(){
+                // Fetch existing tasks
+                fetch("http://localhost:3000/tasks")
+                .then((r) => r.json())
+                .then((tasks) => {
+                // Clear the printing area
+                newTaskAreaSelector.innerHTML = ""
+                // Print existing tasks to DOM
+                tasks.forEach((task) => {
+                    newTaskAreaSelector.innerHTML += taskCard(task)
+                    })    
+                })
         })
     }
 })

@@ -17,19 +17,19 @@ const newCardHTML = () => {
                 <!-- Task Name Form-->
                 <form>
                     <div class="input-field col s6">
-                        <input id="new-task-name-form" type="text" class="validate">
-                        <label for="new-task-name-form">Task Name</label>
+                        <input id="new-task-text-form" type="text" class="validate">
+                        <label for="new-task-text-form">Enter Task</label>
                     </div>
                 </form>
 
                 <!-- Date -->
                     <div class="s6">
-                        <input type="Date" class="datepicker">
+                        <input id="new-task-date-form" type="Date" class="datepicker">
                     </div>
                 </form>
             </div>
             <div class="card-action">
-                <a href="#" id="save-btn">Save</a>
+                <a class="waves-effect waves-teal btn-flat" id="save-btn">Save</a>
                 <a class="waves-effect waves-teal btn-flat" id="cancel-btn">Cancel</a>
             </div>
         </div>
@@ -50,9 +50,9 @@ const taskCard = (singleEntry) => {
 document
 .querySelector ("body")
 .addEventListener ("click", function() {
+    // If statements for buttons
     if(event.target.id === "new-task-btn"){
-    console.log("New Task Button")
-        // Clear the printing area
+    // Clear the printing area
     newTaskAreaSelector.innerHTML = ""
     // Fetch existing tasks
     fetch("http://localhost:3000/tasks")
@@ -66,8 +66,8 @@ document
         newTaskAreaSelector.innerHTML += taskCard(task)
         })
     })
-    } 
-    else if(event.target.id === "cancel-btn"){
+    // Cancel button functionality
+    } else if(event.target.id === "cancel-btn"){
         // Clear the printing area
         newTaskAreaSelector.innerHTML = ""
         // Fetch existing tasks
@@ -82,6 +82,39 @@ document
         })
     })
 
+    } else if (event.target.id === "save-btn"){
+        // Form values
+        // Task name value
+        const newTaskNameValue = document.querySelector("#new-task-text-form").value
+        // Task date value
+        const newTaskDateValue = document.querySelector("#new-task-date-form").value
+        // JSON object
+        const taskObject = {
+        task: newTaskNameValue,
+        date: newTaskDateValue,
+        completed: "false"
+    }
+            // Post statement
+            fetch("http://localhost:3000/tasks", {
+            method: "POST",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(taskObject)
+        }) 
+            .then(function(){
+                // Fetch existing tasks
+                fetch("http://localhost:3000/tasks")
+                .then((r) => r.json())
+                .then((tasks) => {
+                // Clear the printing area
+                newTaskAreaSelector.innerHTML = ""
+                // Print existing tasks to DOM
+                tasks.forEach((task) => {
+                newTaskAreaSelector.innerHTML += taskCard(task)
+                })
+            })
+        })
     }
 })
 

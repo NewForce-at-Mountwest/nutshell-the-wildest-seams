@@ -1,41 +1,63 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "userName": "Lynn-See",
-            "password": "boom123",
-            "actualName": "Lindsey"
-        },
-        {
-            "id": 2,
-            "userName": "Mandy",
-            "password": ""  
-        }
-    ],
-    "tasks": [
-        {
-            "id": 1,
-            "userId": 1,
-            "task": "Finish coding everything",
-            "completed": "false"
-        },
-        {
-            "id": 2,
-            "userId": 1,
-            "task": "Build Task container",
-            "completed": "false"
-        },
-        {
-            "id": 3,
-            "userId": 1,
-            "task": "Make it all look good",
-            "completed": "false"
-        },
-        {
-            "id": 4,
-            "userId": 1,
-            "task": "Publish the website",
-            "completed": "false"
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "userName": "Lynn-See",
+      "password": "boom123",
+      "actualName": "Lindsey"
+    },
+    {
+      "id": 2,
+      "userName": "Mandy",
+      "password": ""
+    }
+  ],
+  "tasks": [
+    {
+      "id": 1,
+      "userId": 1,
+      "task": "Finish coding everything",
+      "completed": "false",
+      "date": "2020-05-19"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "task": "Build Task container",
+      "completed": "false",
+      "date": "2020-05-19"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "task": "Make it all look good",
+      "completed": "false",
+      "date": "2020-05-19"
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "task": "Publish the website",
+      "completed": "false",
+      "date": "2020-05-19"
+    },
+    {
+      "task": "Take out the garbage",
+      "date": "2020-05-20",
+      "completed": "false",
+      "id": 5
+    },
+    {
+      "task": "Take out the garbage",
+      "date": "2020-05-20",
+      "completed": "false",
+      "id": 6
+    },
+    {
+      "task": "Do the dishes",
+      "date": "2020-05-21",
+      "completed": "false",
+      "id": 7
+    }
+  ]
 }

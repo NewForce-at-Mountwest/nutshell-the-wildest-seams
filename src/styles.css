@@ -34,14 +34,15 @@
 }
 
 #tasks-printing-container {
-    overflow: scroll;
+    overflow-y: scroll;
     height: 13em;
 }
 
 .taskCard {
     width: 90rem;
+    background-color: antiquewhite;
 }
 
 .row {
-    width: 80rem;
+    width: 100%;
 }

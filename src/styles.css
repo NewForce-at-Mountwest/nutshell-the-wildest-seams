@@ -28,3 +28,17 @@
 .chatContainer{
     width: 40%;
 }
+
+p{
+    text-size-adjust: 1em;
+}
+.articleContainer{
+    height: 17em;
+    overflow-y: scroll;
+}
+.newsArticleCard{
+    height: 1em;
+    width: 10%
+}
+
+

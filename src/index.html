@@ -1,51 +1,64 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nutshell</title>
 
+    <!-- bootstrap link -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <!-- Materialize -->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <!-- Materialize -->
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+
+  <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+  <body>
     <!-- bar at the top of the screen displaying user and dashboard title -->
-<div class="container dashboardContainer" id="dashboard">
-    <h1>space filler</h1>
-
-</div>
+    <div class="container dashboardContainer" id="dashboard">
+      <h1>space filler</h1>
+    </div>
 
     <!-- Main container for events and news display, because they are stacked on top of each other on the screen -->
 
     <div class="eventNewsContainer" id="eventNewsContainer">
-        <!-- individual events container -->
-    <div class="container eventsContainer" id="eventsContainer">
+      <!-- individual events container -->
+      <div class="container eventsContainer" id="eventsContainer">
         <h1>Events</h1>
-
+      </div>
+      <!-- individual news container -->
+      <div class="container newsContainer" id="newsContainer">
+        <div class="articleContainer" id = "articleContainer"></div>        <!-- Create new article Button, needs to link to form -->
+        <button id="newArticleBtn">Create New Article</button>
+      </div>
     </div>
-        <!-- individual news container -->
-    <div class="container newsContainer" id="newsContainer">
-        <h1>News</h1>
-
-    </div>
-</div>
-
+   
     <!-- task and chat container, because they will be side by side -->
-<div class="taskChatContainer" id="taskChatContainer">
-
-        <!-- individual task container -->
-    <div class="taskContainer container" id="taskContainer">
+    <div class="taskChatContainer" id="taskChatContainer">
+      <!-- individual task container -->
+      <div class="taskContainer container" id="taskContainer">
         <h1>Tasks</h1>
-
-    </div>
-        <!-- individual chat container -->
-    <div class="chatContainer container" id="chatContainer">
+      </div>
+      <!-- individual chat container -->
+      <div class="chatContainer container" id="chatContainer">
         <h1>Messages</h1>
-
+      </div>
     </div>
 
-</div>
- 
-    
-
+    <script src="scripts/news/news.js"></script>
     <script type="module" src="scripts/main.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>

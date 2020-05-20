@@ -8,7 +8,7 @@ const newsArticleCard= (singlePost)=>{
     <p><a href="${singlePost.url}">Go to Article</a></p>
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">${singlePost.title}e<i class="material-icons right">close</i></span>
+    <span class="card-title grey-text text-darken-4">${singlePost.title}<i class="material-icons right">close</i></span>
     <p>${singlePost.synopsis}</p>
   </div>
 </div>`
@@ -60,8 +60,39 @@ function buildNewForm(){
     <label for="formGroupForURL">URL</label>
     <input type="text" class="newURL" id="new-url" placeholder="URL" />
   </div>
-  </form>`
+  </form>
+<button id="saveArticleBtn">Save New Article</button>`
 }  
   
 
+//event listener on saveArticleBtn button and values of the inputs
+// const ()
+document.querySelector("#articleContainer").addEventListener("click", function () {
+  if (event.target.id === "saveArticleBtn"){
+    
+  console.log("You clicked the Save Article Button");
 
+const articleCreation = {
+  "title": document.querySelector("#new-News-Title").value,
+  "synopsis": document.querySelector("#new-Synopsis").value,
+  "url": document.querySelector("#new-url").value
+}
+
+fetch("http://localhost:8000/newsArticles", { // Replace "url" with your API's URL
+  method: "POST",
+  headers: {
+      "Content-Type": "application/json"
+  },
+  body: JSON.stringify(articleCreation)
+}) .then(()=>{
+  fetch("http://localhost:8000/newsArticles")
+  .then((newsArticles) => newsArticles.json())
+  .then((parsednewsArticles) => {
+    console.log(parsednewsArticles);
+    parsednewsArticles.forEach(element => {
+      document.querySelector("#articleContainer").innerHTML +=
+      newsArticleCard(element)
+    });
+})
+}
+)}})

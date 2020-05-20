@@ -1,15 +1,41 @@
 {
     "users": [
         {
-        "id": 1,
-        "userName": "Lynn-See",
-        "password": "boom123",
-        "actualName": "Lindsey"
+            "id": 1,
+            "userName": "Lynn-See",
+            "password": "boom123",
+            "actualName": "Lindsey"
         },
         {
-          "id": 2,
-          "userName": "Mandy",
-          "password": ""  
+            "id": 2,
+            "userName": "Mandy",
+            "password": ""  
+        }
+    ],
+    "tasks": [
+        {
+            "id": 1,
+            "userId": 1,
+            "task": "Finish coding everything",
+            "completed": "false"
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "task": "Build Task container",
+            "completed": "false"
+        },
+        {
+            "id": 3,
+            "userId": 1,
+            "task": "Make it all look good",
+            "completed": "false"
+        },
+        {
+            "id": 4,
+            "userId": 1,
+            "task": "Publish the website",
+            "completed": "false"
         }
     ]
 }

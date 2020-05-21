@@ -14,23 +14,18 @@
   ],
   "tasks": [
     {
-      "id": 1,
-      "userId": 1,
-      "task": "Finish coding everything",
-      "completed": "false",
-      "date": "2020-05-19"
-    },
-    {
-      "task": "Eat all of the snacks",
-      "date": "2020-05-21",
-      "completed": "false",
-      "id": 2
+      "task": "Finish coding everything all of the things",
+      "id": 1
     },
     {
       "task": "Drink some tea",
       "date": "2020-05-22",
       "completed": "false",
       "id": 3
+    },
+    {
+      "task": "Take breaks every day",
+      "id": 4
     }
   ]
 }

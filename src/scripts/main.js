@@ -75,7 +75,7 @@ const editTaskCard = (singleEntry) => {
 
                 <!-- Date -->
                     <div class="s4">
-                        <input id="new-task-date-form" type="Date" class="datepicker">
+                        <input id="edit-task-date-form" type="Date" class="datepicker">
                     </div>
                 </form>
             </div>
@@ -88,45 +88,6 @@ const editTaskCard = (singleEntry) => {
 </div>`
    
 }
-
-// const editTaskCard = (singleEntry) => {
-//     return `
-//     <ul class="collapsible" id="task-edit-form">
-//         <li>
-//             <div class="collapsible-header">
-//                 <div class="card-content dark-text"
-//                 <!-- Task Card Header -->
-//                 <span class="card-title">Edit Task</span>
-//                 <!-- Edit Task Form-->
-//                     <form>
-//                         <div class="row">
-//                             <!-- Date -->
-//                             <div class="input-field col s12">
-//                                 <input placeholder="Enter task" 
-//                                 value="${singleEntry.task}" 
-//                                 id="edit-task-text" 
-//                                 type="text" 
-//                                 class="validate">
-//                             </div>
-//                             <!-- Date -->
-//                             <div class="s4">
-//                                 <input id="new-task-date-form" 
-//                                 type="Date" 
-//                                 class="datepicker">
-//                             </div>
-//                             <!-- Save button -->
-//                             <a class="waves-effect waves-teal btn-flat" id="save-task-changes-btn-${singleEntry.id}">Save</a>
-//                             <a class="waves-effect waves-teal btn-flat" id="cancel-task-changes-btn-${singleEntry.id}">Cancel</a>
-//                         </div>
-//                     </form>
-//                 </div>
-//             </div>
-//         </li>
-//     </ul>`
-   
-// }
-
-
 
 // New tasks button event listener
 document
@@ -236,7 +197,37 @@ document
         })
     // Save edit button functionality
     } else if(event.target.id.includes("save-task-changes-btn")){
-        console.log("This is the save edit button")
+        // Edit primary key
+        const primaryKeyEdit = event.target.id.split("-")[4]
+        // Edit form values
+        const editTaskValue = document.querySelector("#edit-task-text").value
+        // Store edit values in an object
+        const taskObjectToEdit = {
+            task: editTaskValue,
+            id: primaryKeyEdit
+        }
+        // Put statement
+        fetch(`http://localhost:3000/tasks/${primaryKeyEdit}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(taskObjectToEdit)
+        }) .then(() => {
+                // Fetch existing tasks
+                fetch("http://localhost:3000/tasks")
+                .then((r) => r.json())
+                .then((tasks) => {
+                // Clear the printing area
+                newTaskAreaSelector.innerHTML = ""
+                // Print existing tasks to DOM
+                tasks.forEach((task) => {
+                newTaskAreaSelector.innerHTML += taskCard(task)
+                })
+            })        
+            
+        })
+
     // Cancel edit button functionality
     } else if(event.target.id.includes("cancel-task-changes-btn")){
                 // Clear the printing area

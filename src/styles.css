@@ -13,7 +13,8 @@
 }
 
 .newsContainer{
-    height: 20em;
+    /* height: 20em; */
+    height: 40em;
 }
 
 .taskChatContainer{
@@ -33,12 +34,8 @@ p{
     text-size-adjust: 1em;
 }
 .articleContainer{
-    height: 17em;
+    height: 27em;
     overflow-y: scroll;
 }
-.newsArticleCard{
-    height: 1em;
-    width: 10%
-}
-
+ 
 

@@ -4,10 +4,11 @@
 fetch(`http://localhost:3000/messages?_expand=user`)
 .then((messages) => messages.json())
 .then((parsedMessages) => {
-    console.log(parsedMessages)
+    // console.log(parsedMessages)
     parsedMessages.forEach((messageObject) => {
-        console.log(messageObject)
-        const htmlString = `<p>${messageObject.user.userName}: ${messageObject.message}</p> `;
+        // console.log(messageObject)
+        const htmlString = 
+        `<p>${messageObject.user.userName}: ${messageObject.message}</p>`;
         document.querySelector("#messageScreen").innerHTML += htmlString;
     });
 });

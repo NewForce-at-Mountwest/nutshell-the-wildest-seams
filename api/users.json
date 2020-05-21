@@ -21,30 +21,16 @@
       "date": "2020-05-19"
     },
     {
-      "id": 2,
-      "userId": 1,
-      "task": "Build Task container",
+      "task": "Eat all of the snacks",
+      "date": "2020-05-21",
       "completed": "false",
-      "date": "2020-05-19"
+      "id": 2
     },
     {
-      "id": 4,
-      "userId": 1,
-      "task": "Publish the website",
+      "task": "Drink some tea",
+      "date": "2020-05-22",
       "completed": "false",
-      "date": "2020-05-19"
-    },
-    {
-      "task": "Take out the garbage",
-      "date": "2020-05-20",
-      "completed": "false",
-      "id": 5
-    },
-    {
-      "task": "Do all the things",
-      "date": "2020-05-20",
-      "completed": "false",
-      "id": 6
+      "id": 3
     }
   ]
 }

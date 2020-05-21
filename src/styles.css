@@ -46,3 +46,7 @@
 .row {
     width: 100%;
 }
+
+.nav-wrapper {
+    padding-left: 1rem;
+}

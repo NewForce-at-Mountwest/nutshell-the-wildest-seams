@@ -53,7 +53,7 @@ const taskCard = (singleEntry) => {
                 <i class="tiny material-icons icon-btn" id="task-delete-btn-${singleEntry.id}">delete</i>
                 <!--Complete button-->
                 <label class="checkbox">
-                    <input type="checkbox"/>
+                    <input id="task-checkbox-${singleEntry.id}" type="checkbox"/>
                     <span>Incomplete</span>
                 </label>
             </div>
@@ -95,7 +95,6 @@ const editTaskCard = (singleEntry) => {
         </div>
     </div>
 </div>`
-   
 }
 
 // New tasks button event listener
@@ -103,7 +102,7 @@ document
 .querySelector ("body")
 .addEventListener ("click", function() {
     // Primary key
-    const primaryKey = event.target.id.split("-")[3]
+    const taskPrimaryKey = event.target.id.split("-")[3]
     // Fetch for one task
     const getOneTask = (id) => {
         fetch(`http://localhost:3000/tasks/${id}`)
@@ -115,7 +114,7 @@ document
     // Clear the printing area
     taskAreaSelector.innerHTML = ""
     // Fetch existing tasks
-    fetch("http://localhost:3000/tasks")
+    fetch("http://localhost:3000/tasks?completed=false")
     .then((r) => r.json())
     .then((tasks) => {
     // Print New Task Card
@@ -131,7 +130,7 @@ document
         // Clear the printing area
         taskAreaSelector.innerHTML = ""
         // Fetch existing tasks
-        fetch("http://localhost:3000/tasks")
+        fetch("http://localhost:3000/tasks?completed=false")
         .then((r) => r.json())
         .then((tasks) => {
         // Clear the printing area
@@ -152,10 +151,11 @@ document
         const taskObject = {
         task: newTaskNameValue,
         date: newTaskDateValue,
+        userId: 1,
         completed: "false"
     }
             // Post statement
-            fetch("http://localhost:3000/tasks", {
+            fetch("http://localhost:3000/tasks?completed=false", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -164,7 +164,7 @@ document
         }) 
             .then(function(){
                 // Fetch existing tasks
-                fetch("http://localhost:3000/tasks")
+                fetch("http://localhost:3000/tasks?completed=false")
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
@@ -178,11 +178,11 @@ document
     // Delete buttons functionality
     } else if (event.target.id.includes("task-delete-btn")){
         // Delete fetch call
-        fetch(`http://localhost:3000/tasks/${primaryKey}`, {
+        fetch(`http://localhost:3000/tasks/${taskPrimaryKey}`, {
             method: "DELETE",
         }) .then(function(){
                 // Fetch existing tasks
-                fetch("http://localhost:3000/tasks")
+                fetch("http://localhost:3000/tasks?completed=false")
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
@@ -195,11 +195,11 @@ document
         })
     // Edit buttons functionality
     } else if(event.target.id.includes("task-edit-btn")){
-        // console.log("This is the edit button", event.target.id, primaryKey)
+        // console.log("This is the edit button", event.target.id, taskPrimaryKey)
         // define card to replace
-        const cardToReplace = document.querySelector(`#card-${primaryKey}`)
+        const cardToReplace = document.querySelector(`#card-${taskPrimaryKey}`)
         // Fetch specific card clicked
-        fetch(`http://localhost:3000/tasks/${primaryKey}`)
+        fetch(`http://localhost:3000/tasks/${taskPrimaryKey}`)
         .then((r) => r.json())
         .then ((tasks) => {
             cardToReplace.innerHTML = editTaskCard(tasks)
@@ -207,16 +207,18 @@ document
     // Save edit button functionality
     } else if(event.target.id.includes("save-task-changes-btn")){
         // Edit primary key
-        const primaryKeyEdit = event.target.id.split("-")[4]
+        const taskPrimaryKeyEdit = event.target.id.split("-")[4]
         // Edit form values
         const editTaskValue = document.querySelector("#edit-task-text").value
         // Store edit values in an object
         const taskObjectToEdit = {
             task: editTaskValue,
-            id: primaryKeyEdit
+            id: taskPrimaryKeyEdit,
+            userId: 1,
+            completed: "false"
         }
         // Put statement
-        fetch(`http://localhost:3000/tasks/${primaryKeyEdit}`, {
+        fetch(`http://localhost:3000/tasks/${taskPrimaryKeyEdit}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -224,7 +226,7 @@ document
             body: JSON.stringify(taskObjectToEdit)
         }) .then(() => {
                 // Fetch existing tasks
-                fetch("http://localhost:3000/tasks")
+                fetch("http://localhost:3000/tasks?completed=false")
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
@@ -234,15 +236,13 @@ document
                 taskAreaSelector.innerHTML += taskCard(task)
                 })
             })        
-            
-        })
-
+})
     // Cancel edit button functionality
     } else if(event.target.id.includes("cancel-task-changes-btn")){
                 // Clear the printing area
                 taskAreaSelector.innerHTML = ""
                 // Fetch existing tasks
-                fetch("http://localhost:3000/tasks")
+                fetch("http://localhost:3000/tasks?completed=false")
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
@@ -251,14 +251,19 @@ document
                 tasks.forEach((task) => {
                 taskAreaSelector.innerHTML += taskCard(task)
                 })
-            })        
-    }
+            })
+    //  Checkbox functionality
+    } 
+    // else if(event.target.id.includes("task-checkbox")){
+    //     console.log("Checkbox checked", event.target.id)
+    //     // Patch statement
+    //     // {"op": "add", "path": `/tasks/${primaryKey}`, "completed": "true"}
+    //     // Print existing tasks statement
+    // }
 })
 
-
-
 // Print existing tasks to the DOM
-fetch("http://localhost:3000/tasks")
+fetch("http://localhost:3000/tasks?completed=false")
 .then((r) => r.json())
 .then((tasks) => {
     // Clear the printing area

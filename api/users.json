@@ -14,26 +14,14 @@
   ],
   "tasks": [
     {
-      "task": "Take out the garbages",
-      "id": 3
+      "task": "Take out the garbage",
+      "id": 1,
+      "completed": "false"
     },
     {
-      "task": "Do things that scare you",
-      "date": "2020-05-23",
-      "completed": "false",
-      "id": 4
-    },
-    {
-      "task": "Do the dishes",
-      "date": "",
-      "completed": "false",
-      "id": 5
-    },
-    {
-      "task": "Don't do the dishes",
-      "date": "",
-      "completed": "false",
-      "id": 6
+      "task": "Do it all over",
+      "id": 3,
+      "completed": "false"
     }
   ]
 }

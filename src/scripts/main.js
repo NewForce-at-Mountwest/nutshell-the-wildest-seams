@@ -253,13 +253,33 @@ document
                 })
             })
     //  Checkbox functionality
-    } 
-    // else if(event.target.id.includes("task-checkbox")){
-    //     console.log("Checkbox checked", event.target.id)
-    //     // Patch statement
-    //     // {"op": "add", "path": `/tasks/${primaryKey}`, "completed": "true"}
-    //     // Print existing tasks statement
-    // }
+    } else if(event.target.id.includes("task-checkbox")){
+        //  console.log("Checkbox checked", event.target.id)
+        // Checkbox primary key
+        const checkboxPrimaryKey = event.target.id.split("-")[2]
+        //  Patch statement
+        fetch(`http://localhost:3000/tasks/${checkboxPrimaryKey}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({completed: "true"})
+        }) .then(() => {
+                // Fetch existing tasks
+                fetch("http://localhost:3000/tasks?completed=false")
+                .then((r) => r.json())
+                .then((tasks) => {
+                // Clear the printing area
+                taskAreaSelector.innerHTML = ""
+                // Print existing tasks to DOM
+                tasks.forEach((task) => {
+                taskAreaSelector.innerHTML += taskCard(task)
+                })
+            })        
+})
+
+        //  Print existing tasks statement
+     }
 })
 
 // Print existing tasks to the DOM

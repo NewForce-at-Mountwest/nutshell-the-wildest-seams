@@ -13,9 +13,23 @@ const chatApiManager = {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(newMessageObject)
-    })
-    }
-}
+    });
+    },
+    getOneMessage: (id) => {
+  return fetch(`http://localhost:3000/messages/${id}`).then(r => r.json())
+    },
+    updateMessages: (messageObject) => {
+        return fetch(`http://localhost:3000/messages/${messageObject.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(messageObject)
+            })
+        }
+        };
+    
+
 
 //
 

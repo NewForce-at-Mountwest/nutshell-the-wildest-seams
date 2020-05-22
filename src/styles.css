@@ -18,18 +18,18 @@
     height: 20em;
 }
 
-/* .taskChatContainer{
-    /* display: flex; */
-    /* height: 20em; */
-/* } */ 
+.taskChatContainer{
+    display: flex;
+     height: 20em; 
+ } 
 
 .taskContainer{
-    /* width: 60%; */
+    width: 60%;
     height: 20em;
 }
 
 .chatContainer{
-    /* width: 40%; */
+    width: 40%;
     background-color: darkblue;
     border: inset 1px black;
     height: 20em;

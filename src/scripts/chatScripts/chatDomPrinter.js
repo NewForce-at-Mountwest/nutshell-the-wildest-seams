@@ -2,13 +2,13 @@
 
 const buildChatCard = (singleMessage) => {
     return `
-    <div id="editMessage-form">
-    <div id="messageCard">
+    
+    <div id="messageCard-${singleMessage.id}">
     <p><strong>${singleMessage.user.userName}:</strong> ${singleMessage.message}</p>
-    <button class="editMessage-btn" id="editMessage-1">Edit</button>
+    <button class="editMessage" id="editMessage-btn-${singleMessage.id}">Edit</button>
     <p id="timestamp-output"><strong>${singleMessage.user.userName} Sent: </strong>${singleMessage.timestamp}</p>
     </div>
-    </div>`;
+   `;
 };
 
 

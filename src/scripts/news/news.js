@@ -1,3 +1,40 @@
+  // save article
+  function buildNewForm() {
+    return `<section>
+  
+    <div class="form-group-for-news">
+      <label for="formGroupForNews">News Title</label>
+      <input
+        type="text"
+        class="newTitle"
+        id="new-NewsTitle"
+        placeholder="News Title"
+        
+      />
+    </div>
+    <div class="form-group-for-synopsis">
+      <label for="formGroupForSynopsis">Synopsis</label>
+      <input
+        type="text"
+        class="newSynopsis"
+        id="new-Synopsis"
+        placeholder="Synopsis"
+        
+      />
+    </div>
+    <div class="form-group-for-url">
+      <label for="formGroupForURL">URL</label>
+      <input 
+      type="text" 
+      class="newURL" 
+      id="new-url" 
+      placeholder="URL"
+    </div>
+    
+  <button id="saveArticleBtn">Save New Article</button>
+  </section>`
+  }
+
 // creates news article card with materialize
 const newsArticleCard = (singlePost) => {
   return `<div class="card">
@@ -49,9 +86,20 @@ const editArticleForm = (articleFormObject) => {
     value="${articleFormObject.url}"/>
   </div>
   </form>
-  <button id="newFormArticle-${articleFormObject.id}">Save Article</button>`
+  <button id="newFormArticle-${articleFormObject.id}">Save Article</button>`;
   // <button class="edit-btn" id="edit-1">Edit</button>`
 };
+
+// New article form pops up
+const newArticleBtn = document.querySelector("#newArticleBtn");
+
+// build form
+document.querySelector("#newsContainer").addEventListener("click", function () {
+  if (event.target.id === "newArticleBtn") {
+    document.querySelector("#articleContainer").innerHTML += buildNewForm();
+    console.log("You clicked the Create Article Button");
+  }
+});
 //ask Ashon about using original cards with a materialize carousel combo??
 // {/* <div class="carousel">
 /* <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
@@ -99,53 +147,16 @@ document
       });
     }
   });
-// New article form pops up
-const newArticleBtn = document.querySelector("#newArticleBtn");
+// // New article form pops up
+// const newArticleBtn = document.querySelector("#newArticleBtn");
 
-// build form
-document.querySelector("#newsContainer").addEventListener("click", function () {
-  if (event.target.id === "newArticleBtn") {
-    document.querySelector("#articleContainer").innerHTML += buildNewForm();
-    console.log("You clicked the Create Article Button");
-  }
-});
-
-// save article
-function buildNewForm() {
-  return `<form>
-  <div class="form-group-for-news">
-    <label for="formGroupForNews">News Title</label>
-    <input
-      type="text"
-      class="newTitle"
-      id="new-News-Title"
-      placeholder="News Title"
-      
-    />
-  </div>
-  <div class="form-group-for-synopsis">
-    <label for="formGroupForSynopsis">Synopsis</label>
-    <input
-      type="text"
-      class="newSynopsis"
-      id="new-Synopsis"
-      placeholder="Synopsis"
-      
-    />
-  </div>
-  <div class="form-group-for-url">
-    <label for="formGroupForURL">URL</label>
-    <input 
-    type="text" 
-    class="newURL" 
-    id="new-url" 
-    placeholder="URL"
-  </div>
-  </form>
-<button id="saveArticleBtn">Save New Article</button>
-<button class="news-edit-btn" id="edit-1-btn">Edit</button>
-</section>`;
-}
+// // build form
+// document.querySelector("#newsContainer").addEventListener("click", function () {
+//   if (event.target.id === "newArticleBtn") {
+//     document.querySelector("#articleContainer").innerHTML += buildNewForm();
+//     console.log("You clicked the Create Article Button");
+//   }
+// });
 
 // edit article button on form article container
 document
@@ -153,20 +164,22 @@ document
   .addEventListener("click", function () {
     if (event.target.id.includes("editArticleBtn")) {
       const secondaryKey = event.target.id.split("-")[1];
-      console.log(secondaryKey)
+      console.log(secondaryKey);
 
       fetch(`http://localhost:8000/newsArticles/${secondaryKey}`)
         .then((newsArticle) => newsArticle.json())
         .then((parsednewsArticle) => {
-            document.querySelector(
-                "#articleContainer"
-              ).innerHTML = editArticleForm(parsednewsArticle);
+          document.querySelector(
+            "#articleContainer"
+          ).innerHTML = editArticleForm(parsednewsArticle);
         });
     }
-  })
-  document.querySelector("#articleContainer").addEventListener("click", function(){
-    if (event.target.id.includes("newFormArticle")){
-      const editArticleID = event.target.id.split("-")[1]
+  });
+document
+  .querySelector("#articleContainer")
+  .addEventListener("click", function () {
+    if (event.target.id.includes("newFormArticle")) {
+      const editArticleID = event.target.id.split("-")[1];
 
       const articleCreation = {
         title: document.querySelector("#edit-News-Title").value,
@@ -174,61 +187,62 @@ document
         url: document.querySelector("#edit-url").value,
       };
       fetch(`http://localhost:8000/newsArticles/${editArticleID}`, {
-            method: "PUT",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(articleCreation),
-          }).then(() => {
-            console.log("AHHHHHHHHHHHHHHHHHHH!")
-            document.querySelector("#articleContainer").innerHTML = ``;
-            fetch("http://localhost:8000/newsArticles")
-              .then((newsArticles) => newsArticles.json())
-              .then((parsednewsArticles) => {
-                console.log(parsednewsArticles);
-                parsednewsArticles.forEach((element) => {
-                  document.querySelector(
-                    "#articleContainer"
-                  ).innerHTML += newsArticleCard(element);
-                })
-              })
-    })
-  }
-  })
-    //event listener on saveArticleBtn button and values of the inputs
-    document
-      .querySelector("#articleContainer")
-      .addEventListener("click", function () {
-        if (event.target.id === "saveArticleBtn") {
-          console.log("You clicked the Save Article Button");
-
-          const articleCreation = {
-            title: document.querySelector("#new-News-Title").value,
-            synopsis: document.querySelector("#new-Synopsis").value,
-            url: document.querySelector("#new-url").value,
-          };
-          console.log("you created the article")
-          // fetch to post
-          fetch("http://localhost:8000/newsArticles", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(articleCreation),
-          }).then(() => {
-            console.log("AHHHHHHHHHHHHHHHHHHH!")
-            document.querySelector("#articleContainer").innerHTML = ``;
-            fetch("http://localhost:8000/newsArticles")
-              .then((newsArticles) => newsArticles.json())
-              .then((parsednewsArticles) => {
-                console.log(parsednewsArticles);
-                parsednewsArticles.forEach((element) => {
-                  document.querySelector(
-                    "#articleContainer"
-                  ).innerHTML += newsArticleCard(element);
-                });
-              });
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(articleCreation),
+      }).then(() => {
+        console.log("AHHHHHHHHHHHHHHHHHHH!");
+        document.querySelector("#articleContainer").innerHTML = ``;
+        fetch("http://localhost:8000/newsArticles")
+          .then((newsArticles) => newsArticles.json())
+          .then((parsednewsArticles) => {
+            console.log(parsednewsArticles);
+            parsednewsArticles.forEach((element) => {
+              document.querySelector(
+                "#articleContainer"
+              ).innerHTML += newsArticleCard(element);
+            });
           });
-        }
       });
-  
+    }
+  });
+  //event listener on saveArticleBtn button and values of the inputs
+
+
+document
+  .querySelector("body")
+  .addEventListener("click", function () {
+    if (event.target.id === "saveArticleBtn") {
+      console.log("You clicked the Save editedArticle Button");
+
+const articleCreation = {
+  title: document.querySelector("#new-NewsTitle").value,
+  synopsis: document.querySelector("#new-Synopsis").value,
+  url: document.querySelector("#new-url").value,
+}
+console.log("you created the article");
+// fetch to post
+fetch("http://localhost:8000/newsArticles", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(articleCreation),
+}).then(() => {
+  console.log("AHHHHHHHHHHHHHHHHHHH!");
+  document.querySelector("#articleContainer").innerHTML = ``;
+  fetch("http://localhost:8000/newsArticles")
+    .then((newsArticles) => newsArticles.json())
+    .then((parsednewsArticles) => {
+      console.log(parsednewsArticles);
+      parsednewsArticles.forEach((element) => {
+        document.querySelector(
+          "#articleContainer"
+        ).innerHTML += newsArticleCard(element);
+      });
+    });
+});
+}
+});

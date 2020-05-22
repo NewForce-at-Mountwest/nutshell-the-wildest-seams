@@ -51,6 +51,7 @@ const newsArticleCard = (singlePost) => {
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">${singlePost.title}<i class="material-icons right">close</i></span>
     <p>${singlePost.synopsis}</p>
+    <p>${singlePost.timestamp}</p>
     </div>
   </div>
 </div>`;
@@ -185,6 +186,7 @@ document
         title: document.querySelector("#edit-News-Title").value,
         synopsis: document.querySelector("#edit-Synopsis").value,
         url: document.querySelector("#edit-url").value,
+        timestamp: new Date ().toLocaleDateString
       };
       fetch(`http://localhost:8000/newsArticles/${editArticleID}`, {
         method: "PUT",
@@ -221,6 +223,7 @@ const articleCreation = {
   title: document.querySelector("#new-NewsTitle").value,
   synopsis: document.querySelector("#new-Synopsis").value,
   url: document.querySelector("#new-url").value,
+  timestamp: new Date ().toLocaleDateString
 }
 console.log("you created the article");
 // fetch to post
@@ -246,3 +249,25 @@ fetch("http://localhost:8000/newsArticles", {
 });
 }
 });
+
+const timeStamp = () => {
+  return {
+    userId:2,
+    timeStamp: new Date ().toLocaleDateString
+  }
+}
+
+// const messageDateValue = document.querySelector("#articleContainer").value
+//  const timestamp = new Date().toLocaleString();
+
+// fetch(`http://localhost:8000/newsArticles`) // Fetch from the API
+//                 .then(newsArticles => newsArticles.json())  // Parse as JSON
+            
+//                 // Sorts entries in descending order and renders them 
+            
+//                 .then(parsednewsArticles => {
+//                     console.log(parsednewsArticles.sort((a, b) => (a.parsednewsArticles > b.timestamp ? -1 : 1)))
+
+//                     renderDates(parsednewsArticles)
+//                 })
+// (parsednewsArticles.sort((a, b) => (a.id > b.id ? -1 : 1)))

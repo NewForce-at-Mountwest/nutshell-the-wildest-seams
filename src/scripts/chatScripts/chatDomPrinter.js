@@ -1,20 +1,26 @@
 //builds and returns HTML string for a message card
 
 const buildChatCard = (singleMessage) => {
+    if(singleMessage.userId === 1){
     return `
-    
     <div id="messageCard-${singleMessage.id}">
     <p><strong>${singleMessage.user.userName}:</strong> ${singleMessage.message}</p>
     <button class="editMessage" id="editMessage-btn-${singleMessage.id}">Edit</button>
-    <p id="timestamp-output"><strong>${singleMessage.user.userName} Sent: </strong>${singleMessage.timestamp}</p>
+    <p id="timestamp-output">${singleMessage.user.userName} Sent: ${singleMessage.timestamp}</p>
     </div>
    `;
-};
+}else{
+    return `<div id="messageCard-${singleMessage.id}">
+    <p><strong>${singleMessage.user.userName}:</strong> ${singleMessage.message}</p>
+    <p id="timestamp-output"><strong>${singleMessage.user.userName} Sent: </strong>${singleMessage.timestamp}</p>
+    </div>`
+}
+}
 
-
-//Print all messages to message container:
+//Print all messages to message container after clearing container:
 
 const printAllMessages = (messageArray) => {
+    document.querySelector("#messageScreen").innerHTML = "";
     messageArray.forEach((messageObjectInLoop) => {
         const htmlString = buildChatCard(messageObjectInLoop);
         document.querySelector("#messageScreen").innerHTML += htmlString;

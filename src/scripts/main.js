@@ -34,6 +34,7 @@ document.querySelector("body").addEventListener("click", () => {
     }
 
 });
+document.querySelector("#messageScreen").innerHTML = "";
 
 chatApiManager.getAllMessages()
 .then((parsedMessages) => {

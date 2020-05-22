@@ -1,12 +1,9 @@
 import printAllMessages from "./chatDomPrinter.js"
 import chatApiManager from "./chatApiManager.js"
 
-//         sessionStorage.setItem("userId", user[0].id);
-//       });
-//   });
 
 
-// Original event listener to send a message
+// Original event listener to send a message to the message container and build into a happy, little object for json
 const buildMessageObjectFromInput = () => {
     return {
         userId: 1,
@@ -47,6 +44,7 @@ const messageEventListeners = {
               </section>`
           })
       },
+      //save the edited info and get value along with adding a new timestamp
       saveMessageChangeEvent: () => {
           //get value of input
           console.log("you clicked the save changes button", event.target.id)
@@ -70,6 +68,7 @@ const messageEventListeners = {
           chatApiManager.updateMessages(messageObjectToEdit)
           .then(chatApiManager.getAllMessages)
           .then(parsedMessages => {
+              console.log(parsedMessages)
               printAllMessages(parsedMessages)
           })
       }

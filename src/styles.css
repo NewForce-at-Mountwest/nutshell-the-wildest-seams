@@ -29,13 +29,14 @@
     width: 40%;
 }
 
+/* Tasks container CSS */
 #taskContainer {
     padding: 0;
 }
 
 #tasks-printing-container {
     overflow-y: scroll;
-    height: 13.1em;
+    height: 13em;
 }
 
 .taskCard {
@@ -51,8 +52,10 @@
     /* width: 10rem; */
 }
 
-.nav-wrapper {
+.nav-header {
+    display: flex;
     padding-left: 1rem;
+    justify-content: space-between;
 }
 
 .icon-btn:hover {
@@ -90,4 +93,17 @@
 
 .new-task-card-btns {
     padding: 0.5rem;
+}
+
+.switch-container {
+    display: flex;
+    padding-right: 3.5em;
+    padding-bottom: 0.5em;
+
+}
+
+/* Dashboard CSS */
+.dashboard-container {
+    display: flex;
+    /* padding: 2rem; */
 }

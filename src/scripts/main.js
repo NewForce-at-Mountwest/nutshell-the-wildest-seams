@@ -62,6 +62,29 @@ const taskCard = (singleEntry) => {
     </ul>`
 }
 
+// Task card
+const completedTaskCard = (singleEntry) => {
+    return `
+    <ul class="collapsible" id="card-${singleEntry.id}">
+        <li>
+            <div class="collapsible-header task-card-container">
+                <div class="task-header">
+                    <!--Task text-->
+                    ${singleEntry.task}
+                </div>
+            <div class="task-icons-container"
+                <!--Complete button-->
+                <label class="checkbox">
+                    <input id="completed-check-btn-${singleEntry.id}" type="checkbox"/>
+                    <span>Complete</span>
+                </label>
+            </div>
+            </div>
+        </li>
+    </ul>`
+}
+
+
 const editTaskCard = (singleEntry) => {
     return `<div class="row taskCard" id="task-edit-form">
     <div class="col s12 my-card">
@@ -277,9 +300,72 @@ document
                 })
             })        
 })
+    // Incomplete task list - switch functionality
+     } else if (event.target.id === ("switch-btn") && (event.target.classList.contains("disabled"))){
+         console.log("You enabled")
+        //  Add class of enabled for switch
+        document.querySelector("#switch-btn").classList.replace("disabled", "enabled");
 
-        //  Print existing tasks statement
-     }
+        // Add class to New Task button
+        document.querySelector("#new-task-btn").classList.remove("scale-in")
+
+        document.querySelector("#new-task-btn").classList.add("scale-out")
+        // Fetch existing true tasks
+         fetch("http://localhost:3000/tasks?completed=true")
+         .then((r) => r.json())
+         .then((tasks) => {
+         // Clear the printing area
+         taskAreaSelector.innerHTML = ""
+         // Print existing tasks to DOM
+         tasks.forEach((task) => {
+         taskAreaSelector.innerHTML += completedTaskCard(task)
+         })
+     })        
+    //  Completed task list - switch functionality
+     } else if(event.target.id === ("switch-btn") && (event.target.classList.contains("enabled")) ){
+         console.log("You disabled")
+        //  Add class of enabled for switch
+        document.querySelector("#switch-btn").classList.replace("enabled", "disabled");
+        // Add class to New Task button
+        document.querySelector("#new-task-btn").classList.add("scale-in")
+
+        // Fetch existing tasks
+        fetch("http://localhost:3000/tasks?completed=false")
+        .then((r) => r.json())
+        .then((tasks) => {
+        // Clear the printing area
+        taskAreaSelector.innerHTML = ""
+        // Print existing tasks to DOM
+        tasks.forEach((task) => {
+        taskAreaSelector.innerHTML += taskCard(task)
+        })
+    })
+    // Completed checkbox functionality  
+      } else if(event.target.id.includes("completed-check-btn")){
+          console.log("Checked a completed task")
+          const completedPrimaryKey = event.target.id.split("-")[3]
+          fetch(`http://localhost:3000/tasks/${completedPrimaryKey}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({completed: "false"})
+        })
+        .then(() => {
+        // Fetch existing tasks
+        fetch("http://localhost:3000/tasks?completed=true")
+        .then((r) => r.json())
+        .then((tasks) => {
+        // Clear the printing area
+        taskAreaSelector.innerHTML = ""
+        // Print existing tasks to DOM
+        tasks.forEach((task) => {
+        taskAreaSelector.innerHTML += completedTaskCard(task)
+        })
+    })        
+})
+    // 
+      }
 })
 
 // Print existing tasks to the DOM

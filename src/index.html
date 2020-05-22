@@ -14,8 +14,16 @@
   </head>
   <body>
     <!-- bar at the top of the screen displaying user and dashboard title -->
-    <div class="containerWS dashboardContainer" id="dashboard">
-      <h1>space filler</h1>
+    <div class="containerWS dashboard-container" id="dashboard">
+      <div class="logo-container">
+        <h4>The Wildest Seams</h4>
+      </div>
+      <div class="dashboard-container">
+        <h3>Dashboard</h3>
+      </div>
+      <div class="user-container">
+        
+      </div>
     </div>
 
     <!-- Main container for events and news display, because they are stacked on top of each other on the screen -->
@@ -37,9 +45,19 @@
       <div class="taskContainer containerWS" id="taskContainer">
         <nav class="nav-extended blue darken-2">
           <div class="nav-wrapper nav-header">
+            <div>
               <a class="brand-logo">Tasks</a>
+            </div>
+            <div class="switch switch-container">
+                <label>
+                  Incomplete
+                  <input type="checkbox" id="switch-btn" class="disabled">
+                  <span class="lever"></span>
+                  Complete
+                </label>
+              </div>
               <a
-                class="btn-floating btn-large halfway-fab waves-effect waves-light teal z-depth-3" id="new-task-btn"
+                class="btn-floating btn-large halfway-fab waves-effect waves-light teal z-depth-3 scale-transition" id="new-task-btn"
               >
                 <i class="material-icons" id="new-task-btn">add</i>
               </a>

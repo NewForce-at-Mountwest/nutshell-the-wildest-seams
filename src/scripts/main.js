@@ -1,12 +1,12 @@
 // Query selectors
 // New tasks printing area query selector
-const newTaskAreaSelector = document.querySelector("#tasks-printing-container")
+const taskAreaSelector = document.querySelector("#tasks-printing-container")
 
 
 // New task card HTML
 const newCardHTML = () => {
     return `<div class="row taskCard">
-    <div class="col s12">
+    <div class="col s12 my-card">
         <div class="card">
             <div class="card-content dark-text">
 
@@ -15,19 +15,19 @@ const newCardHTML = () => {
 
                 <!-- Task Name Form-->
                 <form>
-                    <div class="input-field s6">
+                    <div class="input-field">
                         <input id="new-task-text-form" type="text" class="validate">
                         <label for="new-task-text-form">Enter Task</label>
                     </div>
                 </form>
 
                 <!-- Date -->
-                    <div class="s4">
+                    <div>
                         <input id="new-task-date-form" type="Date" class="datepicker">
                     </div>
                 </form>
             </div>
-            <div class="card-action">
+            <div class="new-task-card-btns">
                 <a class="waves-effect waves-teal btn-flat" id="task-save-btn">Save</a>
                 <a class="waves-effect waves-teal btn-flat" id="task-cancel-btn">Cancel</a>
             </div>
@@ -41,13 +41,22 @@ const taskCard = (singleEntry) => {
     return `
     <ul class="collapsible" id="card-${singleEntry.id}">
         <li>
-            <div class="collapsible-header">
-            <!--Task text-->
-            ${singleEntry.task}
-            <!--Edit button-->
-            <i class="tiny material-icons hoverable" id="task-edit-btn-${singleEntry.id}">create</i>
-            <!--Delete button-->
-            <i class="tiny material-icons hoverable" id="task-delete-btn-${singleEntry.id}">delete</i>
+            <div class="collapsible-header task-card-container">
+                <div class="task-header">
+                    <!--Task text-->
+                    ${singleEntry.task}
+                </div>
+            <div class="task-icons-container"
+                <!--Edit button-->
+                <i class="tiny material-icons icon-btn" id="task-edit-btn-${singleEntry.id}">create</i>
+                <!--Delete button-->
+                <i class="tiny material-icons icon-btn" id="task-delete-btn-${singleEntry.id}">delete</i>
+                <!--Complete button-->
+                <label class="checkbox">
+                    <input type="checkbox"/>
+                    <span>Incomplete</span>
+                </label>
+            </div>
             </div>
         </li>
     </ul>`
@@ -55,7 +64,7 @@ const taskCard = (singleEntry) => {
 
 const editTaskCard = (singleEntry) => {
     return `<div class="row taskCard" id="task-edit-form">
-    <div class="col s12">
+    <div class="col s12 my-card">
         <div class="card">
             <div class="card-content dark-text">
 
@@ -64,7 +73,7 @@ const editTaskCard = (singleEntry) => {
 
                 <!-- Task Name Form-->
                 <form>
-                    <div class="input-field s6">
+                    <div class="input-field">
                         <input 
                         id="edit-task-text" 
                         type="text" 
@@ -74,12 +83,12 @@ const editTaskCard = (singleEntry) => {
                 </form>
 
                 <!-- Date -->
-                    <div class="s4">
+                    <div>
                         <input id="edit-task-date-form" type="Date" class="datepicker">
                     </div>
                 </form>
             </div>
-            <div class="card-action">
+            <div class="new-task-card-btns">
             <a class="waves-effect waves-teal btn-flat" id="save-task-changes-btn-${singleEntry.id}">Save</a>
             <a class="waves-effect waves-teal btn-flat" id="cancel-task-changes-btn-${singleEntry.id}">Cancel</a>
             </div>
@@ -104,32 +113,32 @@ document
     // New task button functionality
     if(event.target.id === "new-task-btn"){
     // Clear the printing area
-    newTaskAreaSelector.innerHTML = ""
+    taskAreaSelector.innerHTML = ""
     // Fetch existing tasks
     fetch("http://localhost:3000/tasks")
     .then((r) => r.json())
     .then((tasks) => {
     // Print New Task Card
-    newTaskAreaSelector
+    taskAreaSelector
     .innerHTML += newCardHTML()
     // Print existing tasks to DOM
     tasks.forEach((task) => {
-        newTaskAreaSelector.innerHTML += taskCard(task)
+        taskAreaSelector.innerHTML += taskCard(task)
         })
     })
     // Cancel button functionality
     } else if(event.target.id === "task-cancel-btn"){
         // Clear the printing area
-        newTaskAreaSelector.innerHTML = ""
+        taskAreaSelector.innerHTML = ""
         // Fetch existing tasks
         fetch("http://localhost:3000/tasks")
         .then((r) => r.json())
         .then((tasks) => {
         // Clear the printing area
-        newTaskAreaSelector.innerHTML = ""
+        taskAreaSelector.innerHTML = ""
         // Print existing tasks to DOM
         tasks.forEach((task) => {
-        newTaskAreaSelector.innerHTML += taskCard(task)
+        taskAreaSelector.innerHTML += taskCard(task)
         })
     })
     // New task save button functionality
@@ -159,10 +168,10 @@ document
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
-                newTaskAreaSelector.innerHTML = ""
+                taskAreaSelector.innerHTML = ""
                 // Print existing tasks to DOM
                 tasks.forEach((task) => {
-                newTaskAreaSelector.innerHTML += taskCard(task)
+                taskAreaSelector.innerHTML += taskCard(task)
                 })
             })
         })
@@ -177,10 +186,10 @@ document
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
-                newTaskAreaSelector.innerHTML = ""
+                taskAreaSelector.innerHTML = ""
                 // Print existing tasks to DOM
                 tasks.forEach((task) => {
-                    newTaskAreaSelector.innerHTML += taskCard(task)
+                    taskAreaSelector.innerHTML += taskCard(task)
                     })    
                 })
         })
@@ -219,10 +228,10 @@ document
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
-                newTaskAreaSelector.innerHTML = ""
+                taskAreaSelector.innerHTML = ""
                 // Print existing tasks to DOM
                 tasks.forEach((task) => {
-                newTaskAreaSelector.innerHTML += taskCard(task)
+                taskAreaSelector.innerHTML += taskCard(task)
                 })
             })        
             
@@ -231,16 +240,16 @@ document
     // Cancel edit button functionality
     } else if(event.target.id.includes("cancel-task-changes-btn")){
                 // Clear the printing area
-                newTaskAreaSelector.innerHTML = ""
+                taskAreaSelector.innerHTML = ""
                 // Fetch existing tasks
                 fetch("http://localhost:3000/tasks")
                 .then((r) => r.json())
                 .then((tasks) => {
                 // Clear the printing area
-                newTaskAreaSelector.innerHTML = ""
+                taskAreaSelector.innerHTML = ""
                 // Print existing tasks to DOM
                 tasks.forEach((task) => {
-                newTaskAreaSelector.innerHTML += taskCard(task)
+                taskAreaSelector.innerHTML += taskCard(task)
                 })
             })        
     }
@@ -253,10 +262,10 @@ fetch("http://localhost:3000/tasks")
 .then((r) => r.json())
 .then((tasks) => {
     // Clear the printing area
-    newTaskAreaSelector.innerHTML = ""
+    taskAreaSelector.innerHTML = ""
     // Print existing tasks to DOM
     tasks.forEach((task) => {
-        newTaskAreaSelector.innerHTML += taskCard(task)
+        taskAreaSelector.innerHTML += taskCard(task)
     })
 })
 

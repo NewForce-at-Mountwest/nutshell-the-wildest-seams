@@ -14,18 +14,20 @@
   ],
   "tasks": [
     {
-      "task": "Finish coding everything all of the things",
+      "task": "Finish coding all of the things yes",
       "id": 1
     },
     {
-      "task": "Drink some tea",
+      "task": "Three day weekend!",
+      "date": "2020-05-22",
+      "completed": "false",
+      "id": 2
+    },
+    {
+      "task": "Take out the garbage",
       "date": "2020-05-22",
       "completed": "false",
       "id": 3
-    },
-    {
-      "task": "Take breaks every day",
-      "id": 4
     }
   ]
 }

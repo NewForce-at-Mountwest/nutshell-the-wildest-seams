@@ -14,10 +14,32 @@
   ],
   "tasks": [
     {
-      "task": "Yup yuppers",
-      "id": 1,
+      "task": "Sesame Chicken",
+      "date": "",
       "userId": 1,
-      "completed": "true"
+      "completed": "true",
+      "id": 3
+    },
+    {
+      "task": "Crab rangoon",
+      "date": "",
+      "userId": 1,
+      "completed": "true",
+      "id": 4
+    },
+    {
+      "task": "Spicy scallop roll",
+      "date": "",
+      "userId": 1,
+      "completed": "true",
+      "id": 5
+    },
+    {
+      "task": "volcano roll",
+      "date": "",
+      "userId": 1,
+      "completed": "true",
+      "id": 6
     }
   ]
 }

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Document</title>
+    <title>The Wildest Seams</title>
     <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link
@@ -14,20 +14,17 @@
   </head>
   <body>
     <!-- bar at the top of the screen displaying user and dashboard title -->
-    <div class="containerWS dashboard-container" id="dashboard">
-      <div class="logo-container">
-        <h4>The Wildest Seams</h4>
+    <nav>
+      <div class="nav-wrapper blue darken-2">
+        <a class="brand-logo center">The Wildest Seams</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li class="nav-dashboard-text">Dashboard</li>
+        </ul>
       </div>
-      <div class="dashboard-container">
-        <h3>Dashboard</h3>
-      </div>
-      <div class="user-container">
-        
-      </div>
-    </div>
+    </nav>        
 
     <!-- Main container for events and news display, because they are stacked on top of each other on the screen -->
-
+    <div class="everything-container">
     <div class="eventNewsContainer" id="eventNewsContainer">
       <!-- individual events container -->
       <div class="containerWS eventsContainer" id="eventsContainer">
@@ -72,6 +69,7 @@
         <h1>Messages</h1>
       </div>
     </div>
+  </div>
 
     <!-- JS Scripts -->
     <script type="module" src="scripts/main.js"></script>

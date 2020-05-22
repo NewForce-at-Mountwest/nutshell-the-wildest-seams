@@ -93,8 +93,19 @@ const editArticleForm = (articleFormObject) => {
   
   </form>
   <button id="newFormArticle-${articleFormObject.id}">Save Article</button>`;
+  
   // <button class="edit-btn" id="edit-1">Edit</button>`
 };
+
+// trying to get a timestamp on the edit form
+/* <div class="form-group-for-url">
+    <label for="formGroupForURL">URL</label>
+    <input 
+    type="text" 
+    class="newtimestampfield" 
+    id="edit-timestamp" 
+    placeholder="Date-00/00/0000"
+    value="${articleFormObject.timestamp}"/> */
 
 // New article form pops up
 const newArticleBtn = document.querySelector("#newArticleBtn");

@@ -1,5 +1,5 @@
-import printAllMessages from "./chatScripts/chatDomPrinter.js"
-import chatApiManagerObject from "./chatScripts/chatApiManager.js"
+import printAllMessages from "./chatDomPrinter.js"
+import chatApiManager from "./chatApiManager.js"
 
 //         sessionStorage.setItem("userId", user[0].id);
 //       });
@@ -11,7 +11,6 @@ const buildMessageObjectFromInput = () => {
     return {
         userId: 1,
         message: document.querySelector("#message").value,
-        name: document.querySelector("#restaurant-name").    value,
         timestamp: new Date().toLocaleString()
      };
 }
@@ -19,8 +18,8 @@ const buildMessageObjectFromInput = () => {
 const messageEventListeners = {
     saveMessageEvent: () => {
         const messageObject = buildMessageObjectFromInput();
-        chatApiManagerObject.postMessage(messageObject) // Post the message to json-server
-        .then(chatApiManagerObject.getAllMessages) // Fetch all the messages again
+        chatApiManager.postMessage(messageObject) // Post the message to json-server
+        .then(chatApiManager.getAllMessages) // Fetch all the messages again
         .then(printAllMessages) // Once the messages come back, print them to the DOM
       }
 }

@@ -36,6 +36,12 @@ p{
 .articleContainer{
     height: 37em;
     overflow-y: scroll;
+    
+}
+#card-content{
+    width: 3em;
+    height: 2em;
+
 }
  
 

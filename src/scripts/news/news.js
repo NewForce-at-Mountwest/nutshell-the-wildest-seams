@@ -109,12 +109,16 @@ document.querySelector("#newsContainer").addEventListener("click", function () {
 <a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
 <a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
 </div> */
+
+
+
 // where news articles gets translated
 fetch("http://localhost:8000/newsArticles")
   .then((newsArticles) => newsArticles.json())
   .then((parsednewsArticles) => {
     console.log(parsednewsArticles);
-    parsednewsArticles.forEach((element) => {
+    const datesArray =  parsednewsArticles.sort((a, b) => (a.timestamp > b.timestamp ? -1 : 1))
+    datesArray.forEach((element) => {
       document.querySelector("#articleContainer").innerHTML += newsArticleCard(
         element
       );
@@ -181,12 +185,14 @@ document
   .addEventListener("click", function () {
     if (event.target.id.includes("newFormArticle")) {
       const editArticleID = event.target.id.split("-")[1];
+      let today = new Date ();
+      let todayString = (today.getMonth() + 1)+ "/" + today.getDate() + "/" + today.getFullYear()
 
       const articleCreation = {
         title: document.querySelector("#edit-News-Title").value,
         synopsis: document.querySelector("#edit-Synopsis").value,
         url: document.querySelector("#edit-url").value,
-        timestamp: new Date ().toLocaleDateString
+        timestamp: todayString
       };
       fetch(`http://localhost:8000/newsArticles/${editArticleID}`, {
         method: "PUT",
@@ -260,14 +266,3 @@ const timeStamp = () => {
 // const messageDateValue = document.querySelector("#articleContainer").value
 //  const timestamp = new Date().toLocaleString();
 
-// fetch(`http://localhost:8000/newsArticles`) // Fetch from the API
-//                 .then(newsArticles => newsArticles.json())  // Parse as JSON
-            
-//                 // Sorts entries in descending order and renders them 
-            
-//                 .then(parsednewsArticles => {
-//                     console.log(parsednewsArticles.sort((a, b) => (a.parsednewsArticles > b.timestamp ? -1 : 1)))
-
-//                     renderDates(parsednewsArticles)
-//                 })
-// (parsednewsArticles.sort((a, b) => (a.id > b.id ? -1 : 1)))

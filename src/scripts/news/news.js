@@ -83,9 +83,14 @@ const editArticleForm = (articleFormObject) => {
   </div>
   <div class="form-group-for-url">
     <label for="formGroupForURL">URL</label>
-    <input type="text" class="newURL" id="edit-url" placeholder="URL"
+    <input 
+    type="text" 
+    class="newURL" 
+    id="edit-url" 
+    placeholder="URL"
     value="${articleFormObject.url}"/>
   </div>
+  
   </form>
   <button id="newFormArticle-${articleFormObject.id}">Save Article</button>`;
   // <button class="edit-btn" id="edit-1">Edit</button>`

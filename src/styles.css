@@ -55,3 +55,11 @@
     width: 80%;
     
 }
+
+#timestamp-output{
+font-size: xx-small;
+}
+
+.editMessage-btn {
+    font-size: xx-small;
+}

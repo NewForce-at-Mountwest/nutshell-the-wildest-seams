@@ -1,56 +1,48 @@
-//TODO:
-//need a login event listener to eventually be able to save messages for a specific user rather than message text only.
-// document.querySelector("#login-btn").addEventListener("click", () => {
-//     // console.log("Ya clicked the login button");
-//     const usernameValue = document.querySelector("#username-input").value;
-//     const passwordValue = document.querySelector("#password-input").value;
-//     // console.log(usernameValue, passwordValue);
-//     fetch(`http://localhost:3000/users?username=${usernameValue}`)
-//       .then((r) => r.json())
-//       .then((user) => {
-//         console.log(user[0].id);
-//     //     // TODO: check and make sure they entered the right password
-//     //     // TODO: handle errors if user enters username that doesn't exist
-//     //     // TODO: think about how to register new users
+import printAllMessages from "./chatScripts/chatDomPrinter.js"
+import chatApiManagerObject from "./chatScripts/chatApiManager.js"
+
 //         sessionStorage.setItem("userId", user[0].id);
 //       });
 //   });
 
 
 // Original event listener to send a message
-
-document.querySelector("#chat-enter-btn").addEventListener("click", () => {
-    // console.log("you clicked the send button")
-    const messageInput = document.querySelector("#message").value;
- 
-    //TODO: refresh and print automatically on 'send' click
-    // console.log(messageInput)
-
-    //build into an object
-    var newMessageObject = {
+const buildMessageObjectFromInput = () => {
+    return {
         userId: 1,
-        message: messageInput
-    };
-        // console.log(newMessageObject);
+        message: document.querySelector("#message").value,
+        name: document.querySelector("#restaurant-name").    value,
+        timestamp: new Date().toLocaleString()
+     };
+}
 
-    fetch("http://localhost:3000/messages", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newMessageObject)
-    }).then(() => {
-        document.querySelector("#messageScreen").innerHTML = ""
-        fetch(`http://localhost:3000/messages?_expand=user`)
-        .then(r => r.json())
-        .then(parsedMessages => {
-            parsedMessages.forEach((messageObject) => {
-              
-                // console.log(messageObject)
-                const htmlString = `<p>${messageObject.user.userName}: ${messageObject.message}</p>
-                <p>${new Date().toLocaleString()}</p>`;
-                document.querySelector("#messageScreen").innerHTML += htmlString;
-            });
-        })
-    })
-})
+const messageEventListeners = {
+    saveMessageEvent: () => {
+        const messageObject = buildMessageObjectFromInput();
+        chatApiManagerObject.postMessage(messageObject) // Post the message to json-server
+        .then(chatApiManagerObject.getAllMessages) // Fetch all the messages again
+        .then(printAllMessages) // Once the messages come back, print them to the DOM
+      }
+}
+
+
+
+
+
+//target edit button and get specific button info to edit specific message
+// document.querySelector("body").addEventListener("click", () => {
+    // Check to see if the user clicked on something with an id of editMessage-btn
+    // if(event.target.id.includes("editMessage")){
+    //   const primaryKey = event.target.id.split("-")[1] 
+      
+    //   console.log("you clicked edit", event.target.id)
+
+    //   const getSingleMessage = (id) => {
+    //     return fetch(`http://localhost:3000/messages/${id}`)
+    //     .then(r => r.json())
+    //     console.log(getSingleMessage)
+      
+//     }
+// })
+
+export default messageEventListeners;

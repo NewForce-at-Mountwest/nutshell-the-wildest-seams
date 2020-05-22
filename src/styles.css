@@ -35,17 +35,21 @@
 
 #tasks-printing-container {
     overflow-y: scroll;
-    height: 13em;
+    height: 13.1em;
 }
 
 .taskCard {
-    width: 50rem;
+    width: 40rem;
     background-color: antiquewhite;
 }
 
-/* .my-card {
-    height: 
-} */
+.my-card {
+    width: 10rem; 
+}
+
+.my-new-card {
+    /* width: 10rem; */
+}
 
 .nav-wrapper {
     padding-left: 1rem;
@@ -86,5 +90,4 @@
 
 .new-task-card-btns {
     padding: 0.5rem;
-    color: 
 }

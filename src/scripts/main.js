@@ -8,7 +8,7 @@ const newCardHTML = () => {
     return `<div class="row taskCard">
     <div class="col s12 my-card">
         <div class="card">
-            <div class="card-content dark-text">
+            <div class="card-content dark-text my-new-card">
 
                 <!-- Task Card Header -->
                 <span class="card-title">Create New Task</span>
@@ -268,6 +268,3 @@ fetch("http://localhost:3000/tasks")
         taskAreaSelector.innerHTML += taskCard(task)
     })
 })
-
-
-

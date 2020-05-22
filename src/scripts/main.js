@@ -39,7 +39,7 @@ const newCardHTML = () => {
 // Task card
 const taskCard = (singleEntry) => {
     return `
-    <ul class="collapsible" id="card-${singleEntry.id}">
+    <ul class="collapsible scale-transition" id="card-${singleEntry.id}">
         <li>
             <div class="collapsible-header task-card-container">
                 <div class="task-header">
@@ -65,7 +65,7 @@ const taskCard = (singleEntry) => {
 // Task card
 const completedTaskCard = (singleEntry) => {
     return `
-    <ul class="collapsible" id="card-${singleEntry.id}">
+    <ul class="collapsible" id="completed-card-${singleEntry.id}">
         <li>
             <div class="collapsible-header task-card-container">
                 <div class="task-header">
@@ -200,6 +200,8 @@ document
         })
     // Delete buttons functionality
     } else if (event.target.id.includes("task-delete-btn")){
+        // Add transition class to task card
+        document.querySelector(`#card-${taskPrimaryKey}`).classList.add("scale-out")
         // Delete fetch call
         fetch(`http://localhost:3000/tasks/${taskPrimaryKey}`, {
             method: "DELETE",
@@ -303,12 +305,12 @@ document
     // Incomplete task list - switch functionality
      } else if (event.target.id === ("switch-btn") && (event.target.classList.contains("disabled"))){
          console.log("You enabled")
-        //  Add class of enabled for switch
+        //  Replace class of disabled for switch
         document.querySelector("#switch-btn").classList.replace("disabled", "enabled");
 
-        // Add class to New Task button
+        // Remove class to New Task button
         document.querySelector("#new-task-btn").classList.remove("scale-in")
-
+        // Add class to New Task button
         document.querySelector("#new-task-btn").classList.add("scale-out")
         // Fetch existing true tasks
          fetch("http://localhost:3000/tasks?completed=true")
@@ -324,7 +326,7 @@ document
     //  Completed task list - switch functionality
      } else if(event.target.id === ("switch-btn") && (event.target.classList.contains("enabled")) ){
          console.log("You disabled")
-        //  Add class of enabled for switch
+        //  Replace class of enabled for switch
         document.querySelector("#switch-btn").classList.replace("enabled", "disabled");
         // Add class to New Task button
         document.querySelector("#new-task-btn").classList.add("scale-in")

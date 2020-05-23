@@ -1,15 +1,51 @@
 {
-    "users": [
-        {
-        "id": 1,
-        "userName": "Lynn-See",
-        "password": "boom123",
-        "actualName": "Lindsey"
-        },
-        {
-          "id": 2,
-          "userName": "Mandy",
-          "password": ""  
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "userName": "Lynn-See",
+      "password": "boom123",
+      "actualName": "Lindsey"
+    },
+    {
+      "id": 2,
+      "userName": "Mandy",
+      "password": ""
+    }
+  ],
+  "events": [
+    {
+      "id": 1,
+      "userId": "1",
+      "eventName": "Hot Yoga Class",
+      "date": "05/22/2020",
+      "location": "Winnington, WV"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "eventName": "Happy Hour",
+      "date": "05/23/2020",
+      "location": "Winnington, WV"
+    },
+    {
+      "id": 3,
+      "userId": "1",
+      "eventName": "Church",
+      "date": "05/24/2020",
+      "location": "Winnington, WV"
+    },
+    {
+      "id": 4,
+      "userId": "1",
+      "eventName": "Yin Yoga Class",
+      "date": "05/25/2020",
+      "location": "Winnington, WV"
+    },
+    {
+      "eventName": "Ballet ",
+      "date": "2020-05-22",
+      "location": "Winnington, WV",
+      "id": 5
+    }
+  ]
 }

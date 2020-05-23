@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+<!-- Materialize links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -17,8 +20,11 @@
 
     <div class="eventNewsContainer" id="eventNewsContainer">
         <!-- individual events container -->
-    <div class="container eventsContainer" id="eventsContainer">
-        <h1>Events</h1>
+    <div class="container eventsContainer">
+        <p>Events</p>
+        <div id="eventsContainer"></div>
+
+        <button class="newEventBtn" id="newEventBtn">New Event</button>
 
     </div>
         <!-- individual news container -->
@@ -47,5 +53,8 @@
     
 
     <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/Events/script.js"></script>
+    <!-- Materialize links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>

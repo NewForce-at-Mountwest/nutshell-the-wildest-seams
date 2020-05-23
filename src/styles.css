@@ -28,3 +28,12 @@
 .chatContainer{
     width: 40%;
 }
+
+.single-entry{
+    display: flex;
+}
+
+#eventsContainer{
+    overflow-y: scroll;
+    height: 15em;
+}

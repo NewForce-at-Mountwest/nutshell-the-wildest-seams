@@ -65,6 +65,20 @@
       "timestamp": "5/21/2020",
       "url": "https://af.reuters.com/article/worldNews/idAFKBN22X1OS",
       "pictureURL": "https://rel.ink/kd65Nw"
+    },
+    {
+      "title": "oh my gosh, and I can edit it!!!!!",
+      "synopsis": "Keepin it rollin is keeping them in business!",
+      "url": "https://rel.ink/gDbxoM",
+      "timestamp": "5/22/2020",
+      "id": 7
+    },
+    {
+      "title": "oh my gosh",
+      "synopsis": "will this work, does editing it put it in descending order with the other articles?",
+      "url": "will it even console log",
+      "timestamp": "5/23/2020",
+      "id": 8
     }
   ]
 }

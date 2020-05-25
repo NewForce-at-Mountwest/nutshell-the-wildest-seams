@@ -8,11 +8,9 @@ const apiManager = {
             .then(response => response.json())
             .then(response => {
                 //   console.log(response)
-              console.log(response.sort((a, b) => {
-                    b.date - a.date
-                }))
+            
                 document.querySelector("#eventsContainer").innerHTML = ""
-                DOMprinterManager.renderEvents(response)
+                DOMprinterManager.renderEvents(response.sort((a, b) => (a.date < b.date ? -1 : 1)))
             }
             )
     },

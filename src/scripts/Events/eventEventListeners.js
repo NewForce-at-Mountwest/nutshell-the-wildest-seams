@@ -1,24 +1,5 @@
 import apiManager from "./eventApiManager.js"
-
-// This returns a new form for the user to input values in for an Event
-const makeNewForm = () => {
-    return `
-      <form action="">
-  <fieldset id="fieldsetNameOfEvent">
-      <label for="eventName">Name of Event</label>
-      <input type="text" name="eventName" id="eventNameInput">
-  </fieldset>
-  <fieldset id="fieldsetDateOfEvent">
-      <label for="eventDate">Date of Event</label>
-      <input type="date" name="eventDate" id="eventDateInput">
-  </fieldset>
-  <fieldset>
-      <label for="eventLocation">Location of Event</label>
-      <input type="text" name="eventLocation" id="eventLocationInput"></fieldset>
-  
-  </form>
-  <button id="saveBtnTask">Save</button>`
-  }  
+import DOMprinterManager from "./eventDOMPrinter.js"
 
 // This function runs all of the event listeners
   function activateEventListeners (){
@@ -26,7 +7,7 @@ const makeNewForm = () => {
 // This is an event listener that creates a form upon click
 document.querySelector("#newEventBtn").addEventListener("click", event => {
     console.log("you clicked, fool!")
-    document.querySelector("#eventsContainer").innerHTML += makeNewForm()
+    document.querySelector("#eventsContainer").innerHTML = DOMprinterManager.makeNewForm()
 })
 
 // This is an event listener that saves the inputted values from the New Form
@@ -45,7 +26,9 @@ document.querySelector("body").addEventListener("click", event => {
     
         console.log("you clicked, fool!")
         apiManager.addNewEntry(newEventObject)
-    
+
+        apiManager.getAllEvents()
+
         // TODO:Create fetch call with newEventObject as parameter and post the newly created Event. Then refresh the page and create a fetch call to print the dates in descending order. The next event should be bold, have a non-white background, and be slightly larger than the other event cards.
       }}
       );
@@ -72,9 +55,29 @@ document.querySelector("body").addEventListener("click", event => {
             // This targeting the edit buttons id
                 const idToEdit = (event.target.id.split("-") [2])
 
-            apiManager.editEntry(idToEdit)
+                apiManager.getSingleEvent(idToEdit)
+                .then(singleEventData => {
+                    document.querySelector(`#eventsContainer`).innerHTML = DOMprinterManager.makeEventEditForm(singleEventData)
+                })
         }
-    })
+    });
+// This is listening for a click to the save-edit button on the edit form
+    document.querySelector("body").addEventListener("click", () => {
+        // Check to see if the user clicked on something with a class of save-edit-btn
+        if(event.target.classList.contains("save-edit-btn")){
+          const eventId = event.target.id.split("-")[2] // "1"
+          const editedEventData = {
+         eventName: document.querySelector("#eventNameInput").value,
+         date: document.querySelector("#eventDateInput").value,
+         location: document.querySelector("#eventLocationInput").value,
+         id:eventId
+          }
+      
+        // We'll call our PUT method right here!
+      apiManager.editEntry(editedEventData).then(() =>{
+          apiManager.getAllEvents()
+      })
+        }
+      })
 }
-
 export default activateEventListeners

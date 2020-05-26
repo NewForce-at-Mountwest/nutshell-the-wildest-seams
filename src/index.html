@@ -1,51 +1,71 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>The Wildest Seams</title>
+    <link rel="stylesheet" href="styles.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-        <!-- login -->
-        <!-- <form>
-            <input type="text" placeholder="Username" id="username-input">
-            <input type="password" placeholder="Password" id="password-input">
-                </form>
-                <button id="login-btn">Login</button> -->
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  </head>
+  <body>
     <!-- bar at the top of the screen displaying user and dashboard title -->
-<div class="container dashboardContainer" id="dashboard">
-<h4>Space filler text</h4>
-
-</div>
+    <nav>
+      <div class="nav-wrapper blue darken-2">
+        <a class="brand-logo center">The Wildest Seams</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li class="nav-dashboard-text">Dashboard</li>
+        </ul>
+      </div>
+    </nav>        
 
     <!-- Main container for events and news display, because they are stacked on top of each other on the screen -->
-
+    <div class="everything-container">
     <div class="eventNewsContainer" id="eventNewsContainer">
-        <!-- individual events container -->
-    <div class="container eventsContainer" id="eventsContainer">
+      <!-- individual events container -->
+      <div class="containerWS eventsContainer" id="eventsContainer">
         <h1>Events</h1>
-
-    </div>
-        <!-- individual news container -->
-    <div class="container newsContainer" id="newsContainer">
+      </div>
+      <!-- individual news container -->
+      <div class="containerWS newsContainer" id="newsContainer">
         <h1>News</h1>
-
+      </div>
     </div>
-</div>
 
     <!-- task and chat container, because they will be side by side -->
+    <div class="taskChatContainer" id="taskChatContainer">
+      <!-- individual task container -->
+      <div class="taskContainer containerWS" id="taskContainer">
+        <nav class="nav-extended blue darken-2">
+          <div class="nav-wrapper nav-header">
+            <div>
+              <a class="brand-logo">Tasks</a>
+            </div>
+            <div class="switch switch-container">
+                <label>
+                  Incomplete
+                  <input type="checkbox" id="switch-btn" class="disabled">
+                  <span class="lever"></span>
+                  Complete
+                </label>
+              </div>
+              <a
+                class="btn-floating btn-large halfway-fab waves-effect waves-light teal z-depth-3 scale-transition" id="new-task-btn"
+              >
+                <i class="material-icons" id="new-task-btn">add</i>
+              </a>
+          </div>
+        </nav>
+        <div id="tasks-printing-container">
+        <!-- New task card printing goes here -->
+        </div>
+      </div>
+      <!-- individual chat container -->
 <div class="taskChatContainer" id="taskChatContainer">
-
-        <!-- individual task container -->
-    <div class="taskContainer container" id="taskContainer">
-        <h1>Tasks</h1>
-
-    </div>
-
         <!-- individual chat container -->
     <div class="chatContainer container" id="chatContainer">
         <!-- Where actual messages should print like a screen in a chat -->
@@ -60,10 +80,11 @@
         </div>
 
     </div>
+  </div>
 
 </div>
  
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
     <script type="module" src="scripts/main.js"></script>
-</body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -43,11 +44,24 @@
         <button class="newEventBtn" id="newEventBtn">New Event</button>
 
     </div>
-        <!-- individual news container -->
-    <div class="container newsContainer" id="newsContainer">
-        <h1>News</h1>
+    
+      <!-- individual news container -->
+      <div class="container newsContainer" id="newsContainer">
+        <div class="articleContainer" id = "articleContainer"></div> 
+        <div class="editformContainer" id = "editFormContainer"></div>         
+      
+        <!-- Create new article Button, needs to link to form -->
+        <button id="newArticleBtn">Create New Article</button>
+
+        <!-- Delete button for deleting a saved article -->
+        <!-- <button id="deleteArticleBtn-${primaryKey}">Delete Article</button> -->
+
       </div>
     </div>
+   
+      <!-- <div class="containerWS eventsContainer" id="eventsContainer">
+        <h1>Events</h1>
+      </div> -->
 
     <!-- task and chat container, because they will be side by side -->
     <div class="taskChatContainer" id="taskChatContainer">
@@ -96,7 +110,7 @@
   </div>
 
 </div>
- 
+    <script type="module" src="scripts/news/news.js"></script>
     <script type="module" src="scripts/main.js"></script>
     <script type="module" src="scripts/Events/script.js"></script>
     <!-- Materialize links -->

@@ -123,5 +123,48 @@
       "userId": 1,
       "id": 6
     }
+  ],
+  "newsArticles": [
+    {
+      "title": "So much I want to say,' Trump's ex-lawyer Cohen says as he exits prison early",
+      "synopsis": "There is so much I want to say and intend to say. But now is not the right time. Soon",
+      "url": "https://af.reuters.com/article/worldNews/idAFKBN22X1OS",
+      "id": 1,
+      "pictureURL": "https://rel.ink/kd65Nw",
+      "timestamp": "5/22/2020"
+    },
+    {
+      "title": "Clawing back normality: Bangkok cat cafe reopens after virus shutdown",
+      "synopsis": "As Thailand’s capital cautiously reopens many restaurants shuttered over coronavirus fears, the feline “employees” of the Caturday Cafe are back at work.",
+      "url": "https://rel.ink/gNB3qv",
+      "id": 2,
+      "pictureURL": "https://rel.ink/9MYpr3",
+      "timestamp": "5/08/2020"
+    },
+    {
+      "title": "Five-year-old stopped on U.S. highway wanted to buy Lamborghini, police say",
+      "synopsis": "A trooper stopping a car with a suspected “impaired driver” on a U.S. highway on Monday was bemused to find a 5-year-old in the driver’s seat, the Utah Highway Patrol tweeted.",
+      "url": "https://rel.ink/nPA2OK",
+      "id": 3,
+      "pictureURL": "https://rel.ink/kbbJOm",
+      "timestamp": "5/06/2020"
+    },
+    {
+      "title": "'Darth Vader' enforces lockdown in Philippine village",
+      "synopsis": "Dressed as “Star Wars” characters, local officials in the Philippines are out and about to enforce strict quarantine measures while also handing out relief packages..",
+      "url": "https://rel.ink/n8yrM6",
+      "id": 4,
+      "pictureURL": "https://rel.ink/gexe64",
+      "timestamp": "5/04/2020"
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
+      "title": "Wormholes Allow Information to Escape Black Holes",
+      "synopsis": "Check out this recent discovery about workholes",
+      "pictureURL": "https://rel.ink/nOoQor",
+      "timestamp": "10/23/2017"
+    }
   ]
 }

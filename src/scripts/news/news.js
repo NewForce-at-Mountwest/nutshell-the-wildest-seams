@@ -117,19 +117,9 @@ document.querySelector("#newsContainer").addEventListener("click", function () {
     console.log("You clicked the Create Article Button");
   }
 });
-//ask Ashon about using original cards with a materialize carousel combo??
-// {/* <div class="carousel">
-/* <a class="carousel-item" href="#one!"><img src="https://lorempixel.com/250/250/nature/1"></a>
-<a class="carousel-item" href="#two!"><img src="https://lorempixel.com/250/250/nature/2"></a>
-<a class="carousel-item" href="#three!"><img src="https://lorempixel.com/250/250/nature/3"></a>
-<a class="carousel-item" href="#four!"><img src="https://lorempixel.com/250/250/nature/4"></a>
-<a class="carousel-item" href="#five!"><img src="https://lorempixel.com/250/250/nature/5"></a>
-</div> */
-
-
 
 // where news articles gets translated
-fetch("http://localhost:8000/newsArticles")
+fetch("http://localhost:3000/newsArticles")
   .then((newsArticles) => newsArticles.json())
   .then((parsednewsArticles) => {
     console.log(parsednewsArticles);
@@ -150,10 +140,10 @@ document
     if (event.target.id.includes("deleteArticleBtn")) {
       console.log("you clicked the delete article button", event.target.id);
 
-      fetch(`http://localhost:8000/newsArticles/${primaryKey}`, {
+      fetch(`http://localhost:3000/newsArticles/${primaryKey}`, {
         method: "DELETE",
       }).then(function () {
-        fetch("http://localhost:8000/newsArticles")
+        fetch("http://localhost:3000/newsArticles")
           .then((newsArticles) => newsArticles.json())
           .then((parsednewsArticles) => {
             console.log(parsednewsArticles);
@@ -168,16 +158,6 @@ document
       });
     }
   });
-// // New article form pops up
-// const newArticleBtn = document.querySelector("#newArticleBtn");
-
-// // build form
-// document.querySelector("#newsContainer").addEventListener("click", function () {
-//   if (event.target.id === "newArticleBtn") {
-//     document.querySelector("#articleContainer").innerHTML += buildNewForm();
-//     console.log("You clicked the Create Article Button");
-//   }
-// });
 
 // edit article button on form article container
 document
@@ -187,7 +167,7 @@ document
       const secondaryKey = event.target.id.split("-")[1];
       console.log(secondaryKey);
 
-      fetch(`http://localhost:8000/newsArticles/${secondaryKey}`)
+      fetch(`http://localhost:3000/newsArticles/${secondaryKey}`)
         .then((newsArticle) => newsArticle.json())
         .then((parsednewsArticle) => {
           document.querySelector(
@@ -210,7 +190,7 @@ document
         url: document.querySelector("#edit-url").value,
         timestamp: todayString
       };
-      fetch(`http://localhost:8000/newsArticles/${editArticleID}`, {
+      fetch(`http://localhost:3000/newsArticles/${editArticleID}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -219,7 +199,7 @@ document
       }).then(() => {
         console.log("AHHHHHHHHHHHHHHHHHHH!");
         document.querySelector("#articleContainer").innerHTML = ``;
-        fetch("http://localhost:8000/newsArticles")
+        fetch("http://localhost:3000/newsArticles")
           .then((newsArticles) => newsArticles.json())
           .then((parsednewsArticles) => {
             console.log(parsednewsArticles);
@@ -249,7 +229,7 @@ const articleCreation = {
 }
 console.log("you created the article");
 // fetch to post
-fetch("http://localhost:8000/newsArticles", {
+fetch("http://localhost:3000/newsArticles", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
@@ -258,7 +238,7 @@ fetch("http://localhost:8000/newsArticles", {
 }).then(() => {
   console.log("AHHHHHHHHHHHHHHHHHHH!");
   document.querySelector("#articleContainer").innerHTML = ``;
-  fetch("http://localhost:8000/newsArticles")
+  fetch("http://localhost:3000/newsArticles")
     .then((newsArticles) => newsArticles.json())
     .then((parsednewsArticles) => {
       console.log(parsednewsArticles);
@@ -279,6 +259,4 @@ const timeStamp = () => {
   }
 }
 
-// const messageDateValue = document.querySelector("#articleContainer").value
-//  const timestamp = new Date().toLocaleString();
 

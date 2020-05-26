@@ -43,5 +43,15 @@ p{
     height: 2em;
 
 }
- 
-
+/* #newArticleBtn {
+    
+    
+} */
+#saveArticleBtn{
+    padding: 1em;
+    
+}
+#activator.activator{
+   height: 12em; 
+   width: 21em;   
+}

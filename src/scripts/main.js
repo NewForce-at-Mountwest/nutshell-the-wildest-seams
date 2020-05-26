@@ -14,13 +14,6 @@ chatApiManager.getAllMessages()
 //saves and reprints old and new messages once user clicks the 'send' button.
 document.querySelector("#chat-enter-btn").addEventListener("click", messageEventListeners.saveMessageEvent)
 
-// document
-//   .querySelector("#message")
-//   .addEventListener("keypress", function (e) {
-//     if (e.keyCode === 13) {
-//       saveMessageEvent;
-//     }
-// })
  
 
 //target edit button and get specific button info to edit specific message

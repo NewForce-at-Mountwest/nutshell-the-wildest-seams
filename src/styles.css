@@ -51,9 +51,9 @@
 }
 
 #message {
-    /* border: inset 1px black; */
+    border: inset 1px black;
     width: 80%;
-    
+    height: 95%;
 }
 
 #timestamp-output{
@@ -63,3 +63,21 @@ font-size: xx-small;
 .editMessage-btn {
     font-size: xx-small;
 }
+
+/* added css in an effort to make chat bubbles.  delete from here down if it is an issue */
+.chat-box{
+    padding: 30px 15px 5px;
+    display: inline-block;
+    text-align: center;
+    clip-path: polygon(0% 20%, 40% 20%, 50% 0%, 60% 20%, 100% 20%, 100% 100%, 0% 100%);
+    font: bold 15px system-ui;
+    background-color: rgb(60, 61, 61);
+    color: whitesmoke;
+}
+
+.speech-container{
+    filter: drop-shadow(5px 0px 5px rgba(0, 0, 0, 0.3));   
+}
+ 
+
+

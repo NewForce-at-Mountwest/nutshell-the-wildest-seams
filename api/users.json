@@ -13,17 +13,17 @@
       "actualName": "Amanda"
     },
     {
-        "id": 3,
-        "userName": "Ashon",
-        "password": "ashon123",
-        "actualName": "Ashon"
-      },
-      {
-        "id": 4,
-        "userName": "Austin",
-        "password": "hats123",
-        "actualName": "Austin"
-      }
+      "id": 3,
+      "userName": "Ashon",
+      "password": "ashon123",
+      "actualName": "Ashon"
+    },
+    {
+      "id": 4,
+      "userName": "Austin",
+      "password": "hats123",
+      "actualName": "Austin"
+    }
   ],
   "events": [
     {
@@ -55,7 +55,6 @@
       "date": "2020-05-26",
       "location": "Winnington, WV",
       "id": 5
-      
     }
   ],
   "tasks": [
@@ -63,7 +62,7 @@
       "task": "Spicy scallop roll",
       "date": "",
       "userId": 1,
-      "completed": "false",
+      "completed": "true",
       "id": 5
     },
     {

@@ -1,4 +1,5 @@
 .containerWS {
+    margin: 1rem;
 }
 /* basic layout of containers for whole page */
 .container {
@@ -7,26 +8,42 @@
     margin: 1em;
 }
 
+.border {
+    border: solid 2px black;
+}
+
+
 #dashboard{
     padding: 0;
 }
 
 .eventsContainer{
-    height: 20em;
+    height: 21.20rem;
+    padding: 0;
+}
+
+.events-printing-container {
+    padding: 0.2rem;
 }
 
 .newsContainer{
     /* height: 20em; */
     height: 18em;
-    overflow-y: scroll;
-    padding: 2em;
+    padding: 0;
+    margin: 1rem;
+    /* overflow-y: scroll; */
+
 }
+
+.articleContainer {
+    overflow-y: scroll;
+    height: 11.99em;
+}
+
 #activator.activator{
     image-rendering: optimizeQuality;
     height: 8em;
     width: initial;
-    
-    
 }
 
 .taskChatContainer{
@@ -40,7 +57,7 @@
 }
 
 .chatContainer{
-    width: 40%;
+    width: 100%;
     background-color: darkblue;
     border: inset 1px black;
     height: 20em;
@@ -155,7 +172,7 @@
 }
 
 #chatInputContainer {
-    border: inset 1px black;
+    border: inset px black;
     height: 15%;
     /* padding: 5px; */
     background-color: rgb(93, 93, 134);

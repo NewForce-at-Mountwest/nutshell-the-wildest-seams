@@ -65,13 +65,25 @@
         </div>
       </div>
       <!-- individual chat container -->
-      <div class="chatContainer containerWS" id="chatContainer">
-        <h1>Messages</h1>
-      </div>
+<div class="taskChatContainer" id="taskChatContainer">
+        <!-- individual chat container -->
+    <div class="chatContainer container" id="chatContainer">
+        <!-- Where actual messages should print like a screen in a chat -->
+        <div class="chatScreen" id="messageScreen">
+            
+          
+        </div>
+        <!-- where button and input live on the chat container -->
+        <div id="chatInputContainer">
+        <input type="text" id="message" placeholder="Enter Message Here">
+        <button id="chat-enter-btn">Send</button>
+        </div>
+
     </div>
   </div>
 
-    <!-- JS Scripts -->
+</div>
+ 
     <script type="module" src="scripts/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>

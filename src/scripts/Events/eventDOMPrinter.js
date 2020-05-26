@@ -7,7 +7,7 @@ const DOMprinterManager = {
         // Create your own HTML structure for a journal entry 
         // debugger
         return `
-        <section class="single-entry card " id="card-${id}" >
+        <section class="single-entry card" id="card-${id}" >
         <p>Name of Event: ${eventName}</p>
         <p>Date of Event: ${date}</p>
         <p>Location of Event: ${location}</p>

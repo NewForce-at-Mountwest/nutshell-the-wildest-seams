@@ -41,23 +41,27 @@
 
 .chatContainer{
     width: 40%;
-<<<<<<< HEAD
+    background-color: darkblue;
+    border: inset 1px black;
+    height: 20em;
 }
 
 .single-entry{
     display: flex;
 }
 
+.single-entry:first-child{
+    font-weight: bold;
+    font-size: larger;
+    background-color: navy;
+    color: white;
+}
+
 #eventsContainer{
     overflow-y: scroll;
     height: 15em;
 }
-=======
-    background-color: darkblue;
-    border: inset 1px black;
-    height: 20em;
-
-}
+    
 
 /* Tasks container CSS */
 #taskContainer {
@@ -188,4 +192,3 @@ font-size: xx-small;
  
 
 
->>>>>>> master

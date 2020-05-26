@@ -31,7 +31,7 @@ const apiManager = {
                 .then(response => {
                     // console.log(response.sort((a, b) => (a.id > b.id ? -1 : 1)))
                     document.querySelector("#eventsContainer").innerHTML = ""
-                    DOMprinterManager.renderEvents(response)
+                    DOMprinterManager.renderEvents(response.sort((a, b) => (a.date < b.date ? -1 : 1)))
                 })
         })
     },
@@ -48,7 +48,7 @@ const apiManager = {
                 .then(response => {
                     console.log(response.sort((a, b) => (a.id > b.id ? -1 : 1)))
 
-                    DOMprinterManager.renderEvents(response)
+                    DOMprinterManager.renderEvents(response.sort((a, b) => (a.date < b.date ? -1 : 1)))
                 })
         })
     },

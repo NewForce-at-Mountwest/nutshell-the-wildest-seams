@@ -31,6 +31,10 @@
 
 .chatContainer{
     width: 40%;
+    background-color: darkblue;
+    border: inset 1px black;
+    height: 20em;
+
 }
 
 /* Tasks container CSS */
@@ -114,9 +118,6 @@
 
 .nav-dashboard-text {
     padding-left: 1.5rem;
-    background-color: darkblue;
-    border: inset 1px black;
-    height: 20em;
 }
 
 /* basic layout of chat screen, button, and input */

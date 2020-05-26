@@ -9,62 +9,52 @@
     {
       "id": 2,
       "userName": "Mandy",
-      "password": ""
-    }
-  ],
-  "newsArticles": [
-    {
-      "id": 1,
-      "userId": 2,
-      "url": "https://www.quantamagazine.org/newfound-wormhole-allows-information-to-escape-black-holes-20171023/",
-      "title": "Wormholes Allow Information to Escape Black Holes",
-      "synopsis": "Check out this recent discovery about wormholes",
-      "timestamp": "10/23/2017",
-      "pictureURL": "https://d2r55xnwy6nx47.cloudfront.net/uploads/2017/10/wormhole_2880x1620.jpg"
-    },
-    {
-      "id": 2,
-      "userId": 2,
-      "url": "https://rel.ink/nPA2OK",
-      "title": "Five-year-old stopped on U.S. highway wanted to buy Lamborghini, police say",
-      "synopsis": "He had left home in his parents’ vehicle after arguing with his mother, who had told him she would not buy him a Lamborghini.",
-      "timestamp": "5/5/2020",
-      "pictureURL": "https://rel.ink/kGXDJX"
+      "password": "mandy123",
+      "actualName": "Amanda"
     },
     {
       "id": 3,
-      "userId": 2,
-      "url": "https://rel.ink/kGXEG6",
-      "title": "Superheroes, from near and far, join Indonesia's coronavirus battle",
-      "synopsis": "Superheroes say: Wear masks, wash hands and stay alert!",
-      "timestamp": "5/4/2020",
-      "pictureURL": "https://rel.ink/gaGEyl"
+      "userName": "Ashon",
+      "password": "ashon123",
+      "actualName": "Ashon"
     },
     {
       "id": 4,
-      "userId": 2,
-      "url": "https://rel.ink/gAjX3Q",
-      "title": "Waiter, there's a fly in my waffle: Belgian researchers try out insect butter",
-      "synopsis": "Belgian waffles may be about to become more environmentally friendly.",
-      "timestamp": "2/28/2020",
-      "pictureURL": "https://rel.ink/gZeArG"
+      "userName": "Austin",
+      "password": "hats123",
+      "actualName": "Austin"
+    }
+  ],
+  "messages": [
+    {
+      "message": "So this one time, I was packing Jeremy's lunch...",
+      "timestamp": "5/22/2020, 2:54:41 PM",
+      "userId": 1,
+      "id": 1
     },
     {
-      "id": 5,
+      "message": "yeah, go ahead",
+      "timestamp": "5/22/2020, 12:49:36 PM",
       "userId": 2,
-      "title": "Clawing back normality: Bangkok cat cafe reopens after virus shutdown",
-      "synopsis": "the feline “employees” of the Caturday Cafe are back at work.",
-      "timestamp": "2/29/2020",
-      "url": "https://rel.ink/gNB3qv",
-      "pictureURL": "https://rel.ink/nPArBe"
+      "id": 2
     },
     {
-      "id": 6,
-      "title": "So much I want to say,' Trump's ex-lawyer Cohen says as he exits prison early",
-      "synopsis": "There is so much I want to say and intend to say. But now is not the right time. Soon",
-      "timestamp": "5/21/2020",
-      "url": "https://af.reuters.com/article/worldNews/idAFKBN22X1OS",
-      "pictureURL": "https://rel.ink/kd65Nw"
+      "id": 3,
+      "userId": 4,
+      "message": "Does he like bananas?",
+      "timestamp": "18/05/2020, 17:28:42"
+    },
+    {
+      "id": 4,
+      "userId": 3,
+      "message": "his coworkers probably do.",
+      "timestamp": "18/05/2020, 17:30:42"
+    },
+    {
+      "message": "Well, he didn't want one this day...",
+      "timestamp": "5/22/2020, 2:03:34 PM",
+      "userId": 1,
+      "id": 5
     }
   ]
 }

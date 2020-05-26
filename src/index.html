@@ -23,6 +23,26 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+        <!-- login -->
+        <!-- <form>
+            <input type="text" placeholder="Username" id="username-input">
+            <input type="password" placeholder="Password" id="password-input">
+                </form>
+                <button id="login-btn">Login</button> -->
+
+    <!-- bar at the top of the screen displaying user and dashboard title -->
+<div class="container dashboardContainer" id="dashboard">
+<h4>Space filler text</h4>
 
   <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
   <body>
@@ -67,6 +87,27 @@
     <article id="container"></article>
 
     <script src="scripts/news/news.js"></script>
+
+    </div>
+
+        <!-- individual chat container -->
+    <div class="chatContainer container" id="chatContainer">
+        <!-- Where actual messages should print like a screen in a chat -->
+        <div class="chatScreen" id="messageScreen">
+            
+          
+        </div>
+        <!-- where button and input live on the chat container -->
+        <div id="chatInputContainer">
+        <input type="text" id="message" placeholder="Enter Message Here">
+        <button id="chat-enter-btn">Send</button>
+        </div>
+
+    </div>
+
+</div>
+ 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>  
     <script type="module" src="scripts/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>

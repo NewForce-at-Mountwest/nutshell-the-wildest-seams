@@ -25,12 +25,38 @@
       "actualName": "Austin"
     }
   ],
+  "events": [
+    {
+      "eventName": "Happy Hour",
+      "date": "2020-06-23",
+      "location": "Winnington, WV",
+      "id": 1
+    },
+    {
+      "eventName": "Hot Yoga Class",
+      "date": "2020-06-24",
+      "location": "Winnington, WV",
+      "id": 2
+    },
+    {
+      "eventName": "Church",
+      "date": "2020-06-09",
+      "location": "Winnington WV",
+      "id": 3
+    },
+    {
+      "eventName": "Cookout",
+      "date": "2020-06-16",
+      "location": "Winnington, WV",
+      "id": 4
+    }
+  ],
   "tasks": [
     {
       "task": "Spicy scallop roll",
       "date": "",
       "userId": 1,
-      "completed": "false",
+      "completed": "true",
       "id": 5
     },
     {

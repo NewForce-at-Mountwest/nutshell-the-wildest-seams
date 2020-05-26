@@ -14,32 +14,31 @@
   ],
   "tasks": [
     {
-      "task": "Sesame Chicken",
-      "date": "",
-      "userId": 1,
-      "completed": "true",
-      "id": 3
-    },
-    {
-      "task": "Crab rangoon",
-      "date": "",
-      "userId": 1,
-      "completed": "true",
-      "id": 4
-    },
-    {
       "task": "Spicy scallop roll",
       "date": "",
       "userId": 1,
-      "completed": "true",
+      "completed": "false",
       "id": 5
     },
     {
       "task": "volcano roll",
       "date": "",
       "userId": 1,
-      "completed": "true",
+      "completed": "false",
       "id": 6
+    },
+    {
+      "task": "Take out the garbage",
+      "date": "2020-05-22",
+      "userId": 1,
+      "completed": "false",
+      "id": 9
+    },
+    {
+      "task": "Take a break",
+      "id": 10,
+      "userId": 1,
+      "completed": "false"
     }
   ]
 }

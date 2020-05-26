@@ -16,7 +16,17 @@
 }
 
 .newsContainer{
-    height: 20em;
+    /* height: 20em; */
+    height: 18em;
+    overflow-y: scroll;
+    padding: 2em;
+}
+#activator.activator{
+    image-rendering: optimizeQuality;
+    height: 8em;
+    width: initial;
+    
+    
 }
 
 .taskChatContainer{

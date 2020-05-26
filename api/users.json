@@ -58,6 +58,35 @@
       
     }
   ],
+  "tasks": [
+    {
+      "task": "Spicy scallop roll",
+      "date": "",
+      "userId": 1,
+      "completed": "false",
+      "id": 5
+    },
+    {
+      "task": "volcano rolls",
+      "id": 6,
+      "date": "",
+      "userId": 1,
+      "completed": "false"
+    },
+    {
+      "task": "Take out the garbage",
+      "date": "2020-05-22",
+      "userId": 1,
+      "completed": "false",
+      "id": 9
+    },
+    {
+      "task": "Take a break",
+      "id": 10,
+      "userId": 1,
+      "completed": "false"
+    }
+  ],
   "messages": [
     {
       "message": "So this one time, I was packing Jeremy's lunch...",
@@ -88,6 +117,12 @@
       "timestamp": "5/22/2020, 2:03:34 PM",
       "userId": 1,
       "id": 5
+    },
+    {
+      "message": "This is working well",
+      "timestamp": "5/26/2020, 10:55:19 AM",
+      "userId": 1,
+      "id": 6
     }
   ]
 }
